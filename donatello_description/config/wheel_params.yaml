@@ -1,0 +1,11 @@
+mass: 0.01 # Wheel mass in kg. Used for both driver and caster wheels
+driver_wheel_radius: 0.0355 # Wheel radius in m, used for the collision object
+driver_wheel_radius_diff: 0.00002 # radius difference between left and right wheel, to make odom imperfect
+driver_wheel_width: 0.0206 # Wheel width in m, used for the collision object
+driver_wheel_mesh: wheel.dae # Wheel mesh file, used for the visual representation
+driver_wheel_x_offset: 0.000 # Distance to the driver wheel from the YZ plane in m (relative to footprint center)
+driver_wheel_y_offset: 0.115 # Distance to the driver wheel from the XZ plane in m (relative to footprint center)
+caster_x_offset: 0.115 # Distance to the caster wheel from the YZ plane in m (relative to footprint center)
+caster_radius: 0.0104 # Caster sphere radius in m, used for the collision object
+caster_mu_const: 0.05 # Caster wheel mu value. Used for both mu1 and mu2
+wheel_plane_z_offset: 0.0250 # Relative offset of the driver wheel plane (and base_link) from the base XY plane.

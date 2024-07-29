@@ -1,0 +1,21 @@
+mkdir -p $USER_WS/persistence/$(id -u)/ccache
+mkdir -p $USER_WS/persistence/$(id -u)/install
+mkdir -p $USER_WS/persistence/$(id -u)/build
+
+if [ ! -d "$HOME/.ccache" ]; then
+    ln -s $USER_WS/persistence/$(id -u)/ccache  $HOME/.ccache
+    ln -s $USER_WS/persistence/$(id -u)/install $USER_WS/install
+    ln -s $USER_WS/persistence/$(id -u)/build   $USER_WS/build
+fi
+
+. /opt/ros/humble/setup.bash
+
+# Fix to gazebo crashing when loading simulation. It's unclear why this fixes it,
+# and why it happens (the same repo version a couple of months ago didn't have this issue,
+# so the change is in gazebo or ros). See
+# https://answers.ros.org/question/358847/cannot-launch-gzclient-on-a-launch-file-results-in-shared_ptr-assertion-error/
+if [ -f "/usr/share/gazebo/setup.sh" ]; then
+    . /usr/share/gazebo/setup.sh
+fi
+
+ros2 daemon start

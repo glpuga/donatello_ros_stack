@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>donatello_description</name>
+  <version>0.0.1</version>
+  <description>The donatello_description package</description>
+  <author email="glpuga@gmail.com">Gerardo Puga</author>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>urdf_launch</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <exec_depend>robomaster_description</exec_depend>
+  <exec_depend>yolo_realsense2_models</exec_depend>
+  <exec_depend>yolo_rplidar_models</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

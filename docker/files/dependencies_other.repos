@@ -1,0 +1,17 @@
+repositories:
+  urdfdom:
+    type: git
+    url: https://github.com/ros/urdfdom.git
+    version: 29426ec119e9c3a9df9fc705d08c262a97b7f285
+  ffmpeg_image_transport_msgs:
+    type: git
+    url: https://github.com/berndpfrommer/ffmpeg_image_transport_msgs.git
+    version: a4b3f19b28aad6a9690d36ab98feef0163a8a1a9
+  robomaster_ros:
+    type: git
+    url: https://github.com/glpuga/robomaster_ros.git
+    version: 90f32df44f12c0e8c60fbc30031b3ee6f11efc1
+  yolo_device_models:
+    type: git
+    url: https://github.com/glpuga/yolo_device_models.git
+    version: 23beead3dac3fba737fc47f14d9e3397b6daf726

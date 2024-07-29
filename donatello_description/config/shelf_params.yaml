@@ -1,0 +1,10 @@
+shelf_radius: 0.17 # Radius of the shelf circular board in m
+shelf_thickness: 0.0075 # Thickness of the shelf plank in m
+lower_shelf_height: 0.15 # Height of the TOP FACE of the lower shelf relative to the floor in m
+upper_shelf_height: 0.40 # Height of the TOP FACE of the upper shelf relative to the floor in m
+column_radius: 0.006 # Radius of the column in m
+rear_column_x_offset: -0.055 # Distance to the rear column from the YZ plane in m (relative to footprint center)
+rear_column_y_offset: 0.12 # Distance to the rear column from the XZ plane in m (relative to footprint center)
+front_column_x_offset: 0.12 # Distance to the front column from the YZ plane in m (relative to footprint center)
+front_column_y_offset: 0.082 # Distance to the front column from the XZ plane in m (relative to footprint center)
+start_height: 0.10 # Height of the bottom face of the columns relative to floor. Top height is calculated from shelves.

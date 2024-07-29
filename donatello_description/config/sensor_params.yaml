@@ -1,0 +1,13 @@
+lidar:
+  mesh: "rplidar-a1.stl"
+  x_offset: 0.000 #  Distance from the center of the robot to the lidar along the x-axis
+  y_offset: 0.000 # Distance from the center of the robot to the lidar along the y-axis
+  yaw: 0.0 # Orientation of the lidar in radians
+depth:
+  mesh: "oak-d-pro-w.stl"
+  x_offset: 0.120 # Distance from the center of the robot to the lidar along the x-axis
+  y_offset: 0.000 # Distance from the center of the robot to the lidar along the y-axis
+  z_offset: 0.025 # Height of the lidar from the bottom face of the top shelf
+  roll: 1.5707 # roll of the camera in radians
+  pitch: 0.0 # pitch of the camera in radians
+  yaw: 1.5707 # yaw of the camera in radians

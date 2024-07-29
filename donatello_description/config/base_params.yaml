@@ -1,0 +1,4 @@
+mass: 2.400 # Mass of the Kobuki 2 base in kg
+radius: 0.178 # Radius of the collision envelope of the base in m
+height: 0.10938 # Height of the collision envelope of the base in m
+mesh: main_body.dae # Mesh file to use for visual representation

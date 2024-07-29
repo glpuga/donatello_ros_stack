@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#xacro">
+
+  <xacro:macro name="lidar" params="tf_prefix=''">
+
+    <joint name="${tf_prefix}arm_base_to_deck_joint" type="fixed">
+      <origin xyz="-0.115 0.00 0.0070" rpy="0 0 -${pi/2}" />
+      <parent link="${tf_prefix}arm_base_link" />
+      <child link="${tf_prefix}cpu_lidar_shelves" />
+    </joint>
+
+    <link name="${tf_prefix}cpu_lidar_shelves">
+      <inertial>
+        <mass value="0.01" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="file:$(find donatello_description)/meshes/lidar_cpu_shelves.dae" />
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="${tf_prefix}lidar_base_link_joint" type="fixed">
+      <origin xyz="0 0 0.003" rpy="0 0 0" />
+      <parent link="${tf_prefix}cpu_lidar_shelves" />
+      <child link="${tf_prefix}lidar_base_link" />
+    </joint>
+
+    <link name="${tf_prefix}lidar_base_link" />
+
+    <xacro:sensor_rplidar_a2_m12 parent="${tf_prefix}lidar_base_link" prefix="rear" />
+
+  </xacro:macro>
+
+
+  <xacro:macro name="depth_camera" params="tf_prefix=''">
+
+    <joint name="${tf_prefix}camera_support_joint" type="fixed">
+      <origin xyz="0.018 0.0 -0.01" rpy="0 0 0" />
+      <parent link="${tf_prefix}gripper_link_link" />
+      <child link="${tf_prefix}camera_support_link" />
+    </joint>
+
+    <link name="${tf_prefix}camera_support_link">
+      <inertial>
+        <mass value="0.01" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="file:$(find donatello_description)/meshes/depth_camera_support.dae" />
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="${tf_prefix}camera_mount_joint" type="fixed">
+      <origin xyz="0.0372 0 0.001" rpy="0 0 0" />
+      <parent link="${tf_prefix}camera_support_link" />
+      <child link="${tf_prefix}depth_camera_mount_link" />
+    </joint>
+
+    <link name="${tf_prefix}depth_camera_mount_link" />
+
+    <xacro:sensor_d435i parent="${tf_prefix}depth_camera_mount_link" use_nominal_extrinsics="true" />
+
+  </xacro:macro>
+
+
+  <xacro:macro name="controller" params="tf_prefix=''">
+
+    <joint name="${tf_prefix}arm_base_to_controller_support_joint" type="fixed">
+      <origin xyz="-0.005 0.1 -0.0185" rpy="0 0 0" />
+      <parent link="${tf_prefix}arm_base_link" />
+      <child link="${tf_prefix}controller_support_link" />
+    </joint>
+
+    <link name="${tf_prefix}controller_support_link">
+      <inertial>
+        <mass value="0.01" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      <visual>
+        <origin rpy="0 0 ${pi}" />
+        <geometry>
+          <mesh filename="file:$(find donatello_description)/meshes/controller_support.dae" />
+        </geometry>
+      </visual>
+      <visual>
+        <origin xyz="0.003 -0.009 0.083" rpy="0 ${pi/2} ${pi/4}" />
+        <geometry>
+          <mesh filename="package://robomaster_description/meshes/intelligent_controller.dae" />
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+
+</robot>
