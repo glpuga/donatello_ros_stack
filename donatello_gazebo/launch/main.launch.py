@@ -12,13 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from pathlib import Path
 import os
 
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import AppendEnvironmentVariable, ExecuteProcess
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -26,30 +24,39 @@ from launch_ros.actions import Node
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from launch.conditions import IfCondition
+from launch.substitutions import PythonExpression
+
 
 def generate_launch_description():
-    default_world_name = "minimal.sdf"
+    launch_gazebo_gui_arg = DeclareLaunchArgument(
+        name="launch_gazebo_gui",
+        description="Set to true to launch the Gazebo GUI",
+        choices=["true", "false"],
+        default_value="false",
+    )
+    launch_gazebo_gui_conf = LaunchConfiguration("launch_gazebo_gui")
 
     gzserver_launch_include = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [
-                        FindPackageShare("ros_gz_sim"),
-                        "launch",
-                        "gz_sim.launch.py",
-                    ]
-                )
-            ]
+            PathJoinSubstitution(
+                [
+                    FindPackageShare("ros_gz_sim"),
+                    "launch",
+                    "gz_sim.launch.py",
+                ]
+            )
         ),
         launch_arguments={
             "gz_args": [
                 "-r -s -v4 ",
                 PathJoinSubstitution(
                     [
-                        FindPackageShare("donatello_gazebo"),
+                        FindPackageShare("donatello_bookstore_world"),
                         "worlds",
-                        default_world_name,
+                        "bookstore.sdf",
                     ]
                 ),
             ],
@@ -68,6 +75,9 @@ def generate_launch_description():
             )
         ),
         launch_arguments={"gz_args": "-g -v4 "}.items(),
+        condition=IfCondition(
+            PythonExpression(['"', launch_gazebo_gui_conf, '" == "true"']),
+        ),
     )
 
     bridge_params = os.path.join(
@@ -103,45 +113,9 @@ def generate_launch_description():
         output="screen",
     )
 
-    # robomaster_description is needed because the meshes from the URDF are
-    # loaded from there, but it's not a direct dependency. This is a workaround
-    # to make sure the meshes are found because of the way Gazebo finds resources.
-
-    # TODO: remove this once the mecanum drive is working
-    paths_to_resources = [
-        AppendEnvironmentVariable(
-            "GZ_SIM_RESOURCE_PATH",
-            str(
-                Path(
-                    os.path.join(get_package_share_directory("robomaster_description"))
-                ).parent.resolve()
-            ),
-        ),
-        AppendEnvironmentVariable(
-            "GZ_SIM_RESOURCE_PATH",
-            str(
-                Path(
-                    os.path.join(get_package_share_directory("donatello_description"))
-                ).parent.resolve()
-            ),
-        ),
-        AppendEnvironmentVariable(
-            "GZ_SIM_RESOURCE_PATH",
-            str(
-                Path(
-                    os.path.join(get_package_share_directory("donatello_gazebo"))
-                ).parent.resolve()
-            ),
-        ),
-    ]
-
     return LaunchDescription(
         [
-            *paths_to_resources,
-            ExecuteProcess(
-                cmd=["env"],
-                output="screen",
-            ),
+            launch_gazebo_gui_arg,
             gzserver_launch_include,
             gzclient_launch_include,
             gazebo_ros_bride_node,

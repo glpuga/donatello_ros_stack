@@ -10,8 +10,12 @@ repositories:
   robomaster_ros:
     type: git
     url: https://github.com/glpuga/robomaster_ros.git
-    version: 90f32df44f12c0e8c60fbc30031b3ee6f11efc1
+    version: f60c6204c3e9107688f300dafa34f26eadd435dd
   yolo_device_models:
     type: git
     url: https://github.com/glpuga/yolo_device_models.git
-    version: 23beead3dac3fba737fc47f14d9e3397b6daf726
+    version: f5a6694ebf5b83921a5a3d1e949664c2251fdee9
+  random_walker:
+    type: git
+    url: https://github.com/glpuga/reusable_random_walker.git
+    version: 401178ab1296c5bb3d3cddb62f18ce9e338d827f

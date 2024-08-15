@@ -20,35 +20,43 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import SetParameter
 
 
 def generate_launch_description():
+    use_sim_time_param = SetParameter(
+        name="use_sim_time",
+        value=True,
+    )
+
     launch_common_modules = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [
-                        FindPackageShare("donatello_bringup_common"),
-                        "launch",
-                        "main.launch.py",
-                    ]
-                )
-            ]
+            PathJoinSubstitution(
+                [
+                    FindPackageShare("donatello_bringup_common"),
+                    "launch",
+                    "main.launch.py",
+                ]
+            )
         ),
     )
 
     launch_simulated_hardware = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [
-                        FindPackageShare("donatello_gazebo"),
-                        "launch",
-                        "main.launch.py",
-                    ]
-                ),
-            ]
+            PathJoinSubstitution(
+                [
+                    FindPackageShare("donatello_gazebo"),
+                    "launch",
+                    "main.launch.py",
+                ]
+            ),
         ),
     )
 
-    return LaunchDescription([launch_simulated_hardware, launch_common_modules])
+    return LaunchDescription(
+        [
+            use_sim_time_param,
+            launch_simulated_hardware,
+            launch_common_modules,
+        ]
+    )

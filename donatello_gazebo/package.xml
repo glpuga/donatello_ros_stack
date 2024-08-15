@@ -12,6 +12,9 @@
   <depend>ros_gz_sim</depend>
   <depend>sensor_msgs</depend>
 
+  <depend>donatello_bookstore_world</depend>
+  <depend>donatello_plain_world</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <export>

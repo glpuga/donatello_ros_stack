@@ -25,7 +25,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     robot_description_xacro_file = PathJoinSubstitution(
         [
-            FindPackageShare('donatello_description'),
+            FindPackageShare("donatello_description"),
             "urdf",
             "donatello.urdf.xacro",
         ]
@@ -38,18 +38,13 @@ def generate_launch_description():
         parameters=[
             {
                 "robot_description": Command(["xacro ", robot_description_xacro_file]),
+                "publish_frequency": 50.0,
             }
         ],
-    )
-
-    robot_joint_publisher_node = Node(
-        package="joint_state_publisher",
-        executable="joint_state_publisher",
     )
 
     return LaunchDescription(
         [
             robot_state_publisher_node,
-            robot_joint_publisher_node,
         ]
     )

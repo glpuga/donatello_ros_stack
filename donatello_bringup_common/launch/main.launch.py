@@ -31,29 +31,30 @@ def generate_launch_description():
 
     rviz_conf = LaunchConfiguration("use_rviz")
 
+    def build_launch_description_source(pkg):
+        return PythonLaunchDescriptionSource(
+            PathJoinSubstitution([FindPackageShare(pkg), "launch", "main.launch.py"])
+        )
+
     launch_description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [
-                        FindPackageShare("donatello_description"),
-                        "launch",
-                        "main.launch.py",
-                    ]
-                ),
-            ]
-        ),
+        build_launch_description_source("donatello_description")
     )
 
     launch_rviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [FindPackageShare("donatello_rviz2"), "launch", "main.launch.py"]
-                )
-            ]
-        ),
+        build_launch_description_source("donatello_rviz2"),
         condition=IfCondition(rviz_conf),
+    )
+
+    launch_teleop = IncludeLaunchDescription(
+        build_launch_description_source("donatello_teleop")
+    )
+
+    launch_localization = IncludeLaunchDescription(
+        build_launch_description_source("donatello_localization")
+    )
+
+    launch_navigation = IncludeLaunchDescription(
+        build_launch_description_source("donatello_navigation")
     )
 
     return LaunchDescription(
@@ -61,5 +62,8 @@ def generate_launch_description():
             rviz_arg,
             launch_description,
             launch_rviz,
+            launch_teleop,
+            launch_localization,
+            launch_navigation,
         ]
     )

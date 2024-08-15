@@ -89,7 +89,7 @@
       <visual>
         <origin xyz="0.003 -0.009 0.083" rpy="0 ${pi/2} ${pi/4}" />
         <geometry>
-          <mesh filename="package://robomaster_description/meshes/intelligent_controller.dae" />
+          <mesh filename="file:$(find robomaster_description)/meshes/intelligent_controller.dae" />
         </geometry>
       </visual>
     </link>

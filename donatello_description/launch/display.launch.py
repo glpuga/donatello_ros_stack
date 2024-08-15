@@ -33,15 +33,13 @@ def generate_launch_description():
 
     urdf_launch_include = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [
-                PathJoinSubstitution(
-                    [
-                        FindPackageShare('urdf_launch'),
-                        "launch",
-                        "display.launch.py",
-                    ]
-                )
-            ]
+            PathJoinSubstitution(
+                [
+                    FindPackageShare('urdf_launch'),
+                    "launch",
+                    "display.launch.py",
+                ]
+            )
         ),
         launch_arguments={
             "urdf_package": "donatello_description",

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>donatello_plain_world</name>
+  <version>0.1.0</version>
+  <description>Sample worlds package</description>
+  <author email="glpuga@gmail.com">Gerardo Puga</author>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
+  <license>Apache 2.0</license>
+
+  <depend>ros_gz_bridge</depend>
+  <depend>ros_gz_image</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>sensor_msgs</depend>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export>
+    <!-- Required export tag to find models by using <uri>model://model_name</uri> -->
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -24,10 +24,13 @@ RUN apt update \
     curl \
     gdb \
     git \
+    locate \
     mc \
+    psmisc \
     python3-pip \
     screen \
     tmux \
+    wget \
  && rm -rf /var/lib/apt/lists/*
 
 RUN pip install pre-commit==2.20.0
@@ -58,6 +61,19 @@ RUN colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mix
  && colcon mixin update default
 
 COPY --chown=$USER:$GROUP docker/files/colcon_defaults.yaml /home/$USER/.colcon/defaults.yaml
+
+#
+# Install gazebo from source, to patch it
+
+COPY docker/files/patched_collection_fortress.yaml /tmp/patched_collection_fortress.yaml
+RUN cd src/ \
+ && mkdir -p gazebo \
+ && cd gazebo \
+ && vcs import < /tmp/patched_collection_fortress.yaml \
+ && sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+ && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
+ && sudo apt update \
+ && sudo apt -y install $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 
 #
 # Install base system external dependencies
@@ -93,7 +109,7 @@ RUN /bin/bash -c '\
   && sudo sed -i "s/_GROUP_/$GROUP/" config.yml \
   && echo Done installing fixuid for $FIXUID_ARCH'
 
-  RUN /bin/bash -c '\
+RUN /bin/bash -c '\
   sudo apt update \
 && sudo apt install bash-completion \
 && sudo rm -rf /var/lib/apt/lists/*'

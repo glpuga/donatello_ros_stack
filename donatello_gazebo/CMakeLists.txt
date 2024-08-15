@@ -20,16 +20,12 @@ find_package(ament_cmake REQUIRED)
 include_directories(
     config
     launch
-    models
-    worlds
 )
 
 install(
     DIRECTORY
         config
         launch
-        models
-        worlds
     DESTINATION share/${PROJECT_NAME}
 )
 

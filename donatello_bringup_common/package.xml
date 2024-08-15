@@ -12,6 +12,9 @@
 
   <depend>donatello_description</depend>
   <depend>donatello_rviz2</depend>
+  <depend>donatello_teleop</depend>
+  <depend>donatello_localization</depend>
+  <depend>donatello_navigation</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
