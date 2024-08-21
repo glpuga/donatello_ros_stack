@@ -42,6 +42,18 @@
       </plugin>
     </gazebo>
 
+    <!-- odometry publisher to create ground truth info -->
+    <gazebo>
+      <plugin name="ignition::gazebo::systems::OdometryPublisher"
+        filename="ignition-gazebo-odometry-publisher-system">
+        <odom_frame>map</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+        <odom_publish_frequency>20</odom_publish_frequency>
+        <odom_topic>ground_truth</odom_topic>
+        <tf_topic>gt</tf_topic>
+      </plugin>
+    </gazebo>
+
     <gazebo>
       <plugin filename="gz-sim-joint-state-publisher-system"
         name="gz::sim::systems::JointStatePublisher">

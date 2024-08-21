@@ -25,7 +25,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     goal_timeout_arg = DeclareLaunchArgument(
         name="goal_timeout",
-        default_value="50.0",
+        default_value="30.0",
         description="Time in seconds to wait for a goal to be reached before sending the next one",
     )
     timer_interval_arg = DeclareLaunchArgument(
@@ -35,7 +35,7 @@ def generate_launch_description():
     )
     goal_tolerance_arg = DeclareLaunchArgument(
         name="goal_tolerance",
-        default_value="2.0",
+        default_value="1.0",
         description="Distance in meters to consider a goal as reached",
     )
     goals_file_arg = DeclareLaunchArgument(
