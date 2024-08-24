@@ -1,0 +1,815 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 85
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Realsense Camera1
+      Splitter Ratio: 0.6540697813034058
+    Tree Height: 447
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_accel_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_accel_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_bottom_screw_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_color_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_color_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_gyro_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_gyro_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_infra1_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_infra1_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_infra2_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_infra2_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_arm_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_arm_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_arm_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_camera_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_camera_support_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_chassis_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_controller_support_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_cpu_lidar_shelves:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_depth_camera_mount_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_end_point_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_endpoint_bracket_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_extension_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_front_hit_sensor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_front_led_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_front_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_front_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_gripper_link_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_gripper_m_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_gripper_t_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_left_gripper_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_gripper_link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_gripper_link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_gripper_link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_gripper_link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_gripper_link_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_hit_sensor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_left_led_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_lidar_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        donatello_rear_hit_sensor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rear_led_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rear_left_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rear_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_gripper_link_7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_hit_sensor_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_right_led_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rod_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rod_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rod_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_rod_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        donatello_triangle_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_mesh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_rplidar_optical_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        camera_accel_frame:
+          Value: true
+        camera_accel_optical_frame:
+          Value: true
+        camera_bottom_screw_frame:
+          Value: true
+        camera_color_frame:
+          Value: true
+        camera_color_optical_frame:
+          Value: true
+        camera_depth_frame:
+          Value: true
+        camera_depth_optical_frame:
+          Value: true
+        camera_gyro_frame:
+          Value: true
+        camera_gyro_optical_frame:
+          Value: true
+        camera_infra1_frame:
+          Value: true
+        camera_infra1_optical_frame:
+          Value: true
+        camera_infra2_frame:
+          Value: true
+        camera_infra2_optical_frame:
+          Value: true
+        camera_link:
+          Value: true
+        donatello_arm_1_link:
+          Value: true
+        donatello_arm_2_link:
+          Value: true
+        donatello_arm_base_link:
+          Value: true
+        donatello_base_link:
+          Value: true
+        donatello_camera_link:
+          Value: true
+        donatello_camera_optical_link:
+          Value: true
+        donatello_camera_support_link:
+          Value: true
+        donatello_chassis_base_link:
+          Value: true
+        donatello_controller_support_link:
+          Value: true
+        donatello_cpu_lidar_shelves:
+          Value: true
+        donatello_depth_camera_mount_link:
+          Value: true
+        donatello_end_point_link:
+          Value: true
+        donatello_endpoint_bracket_link:
+          Value: true
+        donatello_extension_base_link:
+          Value: true
+        donatello_front_hit_sensor_link:
+          Value: true
+        donatello_front_led_link:
+          Value: true
+        donatello_front_left_wheel_link:
+          Value: true
+        donatello_front_right_wheel_link:
+          Value: true
+        donatello_gripper_link_link:
+          Value: true
+        donatello_gripper_m_link:
+          Value: true
+        donatello_gripper_t_link:
+          Value: true
+        donatello_left_gripper_link_1:
+          Value: true
+        donatello_left_gripper_link_2:
+          Value: true
+        donatello_left_gripper_link_4:
+          Value: true
+        donatello_left_gripper_link_5:
+          Value: true
+        donatello_left_gripper_link_6:
+          Value: true
+        donatello_left_gripper_link_7:
+          Value: true
+        donatello_left_hit_sensor_link:
+          Value: true
+        donatello_left_led_link:
+          Value: true
+        donatello_lidar_base_link:
+          Value: true
+        donatello_rear_hit_sensor_link:
+          Value: true
+        donatello_rear_led_link:
+          Value: true
+        donatello_rear_left_wheel_link:
+          Value: true
+        donatello_rear_right_wheel_link:
+          Value: true
+        donatello_right_gripper_link_1:
+          Value: true
+        donatello_right_gripper_link_2:
+          Value: true
+        donatello_right_gripper_link_4:
+          Value: true
+        donatello_right_gripper_link_5:
+          Value: true
+        donatello_right_gripper_link_6:
+          Value: true
+        donatello_right_gripper_link_7:
+          Value: true
+        donatello_right_hit_sensor_link:
+          Value: true
+        donatello_right_led_link:
+          Value: true
+        donatello_rod_1_link:
+          Value: true
+        donatello_rod_2_link:
+          Value: true
+        donatello_rod_3_link:
+          Value: true
+        donatello_rod_link:
+          Value: true
+        donatello_triangle_link:
+          Value: true
+        rear_mesh_link:
+          Value: true
+        rear_rplidar_optical_link:
+          Value: true
+      Marker Scale: 0.15000000596046448
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        base_link:
+          donatello_base_link:
+            donatello_chassis_base_link:
+              donatello_arm_base_link:
+                donatello_arm_1_link:
+                  donatello_arm_2_link:
+                    donatello_camera_link:
+                      donatello_camera_optical_link:
+                        {}
+                    donatello_endpoint_bracket_link:
+                      donatello_end_point_link:
+                        {}
+                      donatello_gripper_link_link:
+                        donatello_camera_support_link:
+                          donatello_depth_camera_mount_link:
+                            camera_bottom_screw_frame:
+                              camera_link:
+                                camera_accel_frame:
+                                  camera_accel_optical_frame:
+                                    {}
+                                camera_color_frame:
+                                  camera_color_optical_frame:
+                                    {}
+                                camera_depth_frame:
+                                  camera_depth_optical_frame:
+                                    {}
+                                camera_gyro_frame:
+                                  camera_gyro_optical_frame:
+                                    {}
+                                camera_infra1_frame:
+                                  camera_infra1_optical_frame:
+                                    {}
+                                camera_infra2_frame:
+                                  camera_infra2_optical_frame:
+                                    {}
+                        donatello_gripper_m_link:
+                          donatello_left_gripper_link_1:
+                            donatello_left_gripper_link_2:
+                              donatello_left_gripper_link_4:
+                                donatello_left_gripper_link_5:
+                                  donatello_left_gripper_link_6:
+                                    donatello_left_gripper_link_7:
+                                      {}
+                          donatello_right_gripper_link_1:
+                            donatello_right_gripper_link_2:
+                              donatello_right_gripper_link_4:
+                                donatello_right_gripper_link_5:
+                                  donatello_right_gripper_link_6:
+                                    donatello_right_gripper_link_7:
+                                      {}
+                        donatello_gripper_t_link:
+                          {}
+                      donatello_rod_1_link:
+                        {}
+                  donatello_triangle_link:
+                    {}
+                donatello_controller_support_link:
+                  {}
+                donatello_cpu_lidar_shelves:
+                  donatello_lidar_base_link:
+                    rear_mesh_link:
+                      {}
+                    rear_rplidar_optical_link:
+                      {}
+                donatello_rod_2_link:
+                  {}
+                donatello_rod_link:
+                  donatello_rod_3_link:
+                    {}
+              donatello_extension_base_link:
+                {}
+              donatello_front_hit_sensor_link:
+                donatello_front_led_link:
+                  {}
+              donatello_front_left_wheel_link:
+                {}
+              donatello_front_right_wheel_link:
+                {}
+              donatello_left_hit_sensor_link:
+                donatello_left_led_link:
+                  {}
+              donatello_rear_hit_sensor_link:
+                donatello_rear_led_link:
+                  {}
+              donatello_rear_left_wheel_link:
+                {}
+              donatello_rear_right_wheel_link:
+                {}
+              donatello_right_hit_sensor_link:
+                donatello_right_led_link:
+                  {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 0.16629770398139954
+        Min Value: 0.16629770398139954
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 47
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Spheres
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz_common/Group
+      Displays:
+        - Class: rviz_default_plugins/Image
+          Enabled: true
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Color
+          Normalize Range: true
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/color/image_raw
+          Value: true
+        - Class: rviz_default_plugins/Image
+          Enabled: true
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Depth
+          Normalize Range: true
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/depth/image_rect_raw
+          Value: true
+        - Class: rviz_default_plugins/Image
+          Enabled: true
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Depth aligned to color
+          Normalize Range: true
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/aligned_depth_to_color/image_raw
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz_default_plugins/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Max Intensity: 4096
+          Min Color: 0; 0; 0
+          Min Intensity: 0
+          Name: Pointcloud
+          Position Transformer: XYZ
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Flat Squares
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/depth/color/points
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Acceleration properties:
+            Acc. vector alpha: 1
+            Acc. vector color: 255; 0; 0
+            Acc. vector scale: 1
+            Derotate acceleration: true
+            Enable acceleration: true
+          Axes properties:
+            Axes scale: 1
+            Enable axes: true
+          Box properties:
+            Box alpha: 1
+            Box color: 255; 0; 0
+            Enable box: false
+            x_scale: 1
+            y_scale: 1
+            z_scale: 1
+          Class: rviz_imu_plugin/Imu
+          Enabled: false
+          Name: Accel
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/accel/sample
+          Value: false
+          fixed_frame_orientation: true
+        - Acceleration properties:
+            Acc. vector alpha: 1
+            Acc. vector color: 255; 0; 0
+            Acc. vector scale: 1
+            Derotate acceleration: true
+            Enable acceleration: true
+          Axes properties:
+            Axes scale: 1
+            Enable axes: true
+          Box properties:
+            Box alpha: 1
+            Box color: 255; 0; 0
+            Enable box: false
+            x_scale: 1
+            y_scale: 1
+            z_scale: 1
+          Class: rviz_imu_plugin/Imu
+          Enabled: false
+          Name: Gyro
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /camera/realsense2_camera_driver/gyro/sample
+          Value: false
+          fixed_frame_orientation: true
+      Enabled: true
+      Name: Realsense Camera
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 12.682584762573242
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.25541138648986816
+        Y: 0.6085283160209656
+        Z: 0.7631309628486633
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.0947960615158081
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 2.8994553089141846
+    Saved: ~
+Window Geometry:
+  Color:
+    collapsed: false
+  Depth:
+    collapsed: false
+  Depth aligned to color:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 1123
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000002000000000000019a00000401fc0200000002fb000000100044006900730070006c006100790073010000004400000255000000eb00fffffffb0000000a0056006900650077007301000002a0000001a5000000b900ffffff000000010000021800000401fc0200000003fb0000002c0044006500700074006800200061006c00690067006e0065006400200074006f00200063006f006c006f007201000000440000016f0000002c00fffffffb0000000a0044006500700074006801000001ba0000014e0000002c00fffffffb0000000a0043006f006c006f0072010000030f000001360000002c00ffffff0000037e0000040100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Views:
+    collapsed: false
+  Width: 1854
+  X: 66
+  Y: 40

@@ -36,7 +36,7 @@ local_costmap:
           obstacle_max_range: 12.5
           obstacle_min_range: 0.0
         rgbd:
-          topic: /realsense_d435i/depth/points
+          topic: /camera/realsense2_camera_driver/depth/color/points
           min_obstacle_height: 0.03
           max_obstacle_height: 0.50
           clearing: True
