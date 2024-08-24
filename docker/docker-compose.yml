@@ -18,5 +18,6 @@ services:
       - /dev:/dev
       - ..:/home/developer/ws/src/project
       - donatello_persistence:/home/developer/ws/persistence
+    network_mode: host
 volumes:
   donatello_persistence:
