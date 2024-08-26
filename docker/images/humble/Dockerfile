@@ -101,18 +101,18 @@ RUN /bin/bash -c '\
 
 COPY --chown=root:root docker/files/fixuid_config.yml /etc/fixuid/config.yml
 RUN /bin/bash -c '\
-     ARCH=`uname -m` && if [ "$ARCH" == "aarch64" ]; then FIXUID_ARCH="arm64"; else FIXUID_ARCH="amd64"; fi \
-  && curl -SsL https://github.com/boxboat/fixuid/releases/download/v0.6.0/fixuid-0.6.0-linux-$FIXUID_ARCH.tar.gz | sudo tar -C /usr/local/bin -xzf - \
-  && sudo chmod 4755 /usr/local/bin/fixuid \
-  && cd /etc/fixuid \
-  && sudo sed -i "s/_USER_/$USER/" config.yml \
-  && sudo sed -i "s/_GROUP_/$GROUP/" config.yml \
-  && echo Done installing fixuid for $FIXUID_ARCH'
+    ARCH=`uname -m` && if [ "$ARCH" == "aarch64" ]; then FIXUID_ARCH="arm64"; else FIXUID_ARCH="amd64"; fi \
+ && curl -SsL https://github.com/boxboat/fixuid/releases/download/v0.6.0/fixuid-0.6.0-linux-$FIXUID_ARCH.tar.gz | sudo tar -C /usr/local/bin -xzf - \
+ && sudo chmod 4755 /usr/local/bin/fixuid \
+ && cd /etc/fixuid \
+ && sudo sed -i "s/_USER_/$USER/" config.yml \
+ && sudo sed -i "s/_GROUP_/$GROUP/" config.yml \
+ && echo Done installing fixuid for $FIXUID_ARCH'
 
 RUN /bin/bash -c '\
-  sudo apt update \
-&& sudo apt install bash-completion \
-&& sudo rm -rf /var/lib/apt/lists/*'
+    sudo apt update \
+ && sudo apt install bash-completion \
+ && sudo rm -rf /var/lib/apt/lists/*'
 
 #
 # Final setup of the workspace
@@ -124,4 +124,4 @@ RUN echo "source /home/developer/.developer_rc" >> /home/developer/.bashrc
 ENV WITHIN_DEV 1
 
 ENV SHELL /bin/bash
-ENTRYPOINT ["fixuid", "-q", "/ros_entrypoint.sh", "/bin/bash"]
+ENTRYPOINT ["fixuid", "/ros_entrypoint.sh", "/bin/bash"]
