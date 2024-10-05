@@ -24,7 +24,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # TODO - This should be a parameter
-    controller_type = "mppi_omni"
+    controller_type = "mppi"
 
     this_package_share = get_package_share_directory("donatello_navigation")
 
@@ -50,16 +50,15 @@ def generate_launch_description():
         "respawn_delay": 2.0,
         "parameters": overall_params,
         "arguments": ["--ros-args", "--log-level", "info"],
-        "remappings": [
-            ('/cmd_vel', '/cmd_vel_controller'),
-            ('/cmd_vel_smoothed', '/cmd_vel'),
-        ],
     }
 
     controller_server_node = Node(
         package="nav2_controller",
         executable="controller_server",
         name="controller_server",
+        remappings=[
+            ('/cmd_vel', '/cmd_vel_controller'),
+        ],
         **common_node_arguments,
     )
 
@@ -81,6 +80,9 @@ def generate_launch_description():
         package="nav2_behaviors",
         executable="behavior_server",
         name="behavior_server",
+        remappings=[
+            ('/cmd_vel', '/cmd_vel_controller'),
+        ],
         **common_node_arguments,
     )
 
@@ -102,6 +104,10 @@ def generate_launch_description():
         package="nav2_velocity_smoother",
         executable="velocity_smoother",
         name="velocity_smoother",
+        remappings=[
+            ('/cmd_vel', '/cmd_vel_mux'),
+            ('/cmd_vel_smoothed', '/cmd_vel_smoother'),
+        ],
         **common_node_arguments,
     )
 
@@ -128,6 +134,25 @@ def generate_launch_description():
         ],
     )
 
+    twist_dithering_node = Node(
+        package="donatello_twist_dithering",
+        executable="twist_dithering",
+        name="twist_dithering_node",
+        output="screen",
+        respawn=True,
+        arguments=["--ros-args", "--log-level", "info"],
+        parameters=[
+            {"robot_hysteresis": [0.1, 0.1, 0.75]},
+            {"virtual_hysteresis": [0.01, 0.01, 0.01]},
+            {"frequency": 20.0},
+            {"timeout": 1.0},
+        ],
+        remappings=[
+            ('/cmd_vel_in', '/cmd_vel_smoother'),
+            ('/cmd_vel_out', '/cmd_vel'),
+        ],
+    )
+
     return LaunchDescription(
         [
             controller_server_node,
@@ -136,7 +161,8 @@ def generate_launch_description():
             behavior_server_node,
             bt_navigator_node,
             waypoint_follower_node,
-            lifecycle_manager_node,
             velocity_smoother_node,
+            lifecycle_manager_node,
+            twist_dithering_node,
         ]
     )

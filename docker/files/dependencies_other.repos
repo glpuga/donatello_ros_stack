@@ -19,3 +19,7 @@ repositories:
     type: git
     url: https://github.com/glpuga/reusable_random_walker.git
     version: 401178ab1296c5bb3d3cddb62f18ce9e338d827f
+  realsense_ros:
+    type: git
+    url: https://github.com/IntelRealSense/realsense-ros.git
+    version: 1cbd81be81e807eefb46f098e76381888ffc7001

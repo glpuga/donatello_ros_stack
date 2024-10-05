@@ -16,47 +16,30 @@
 
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.substitutions import PathJoinSubstitution
-from launch_ros.substitutions import FindPackageShare
-from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
-
+from launch_ros.actions import Node
 from launch.actions import GroupAction
 from launch_ros.actions import SetRemap
 
-from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+
+
+import os
 
 
 def generate_launch_description():
-    robomaster_launchfile_arguments = {
-        "name": "robomaster_ep",
-        "model": "ep",
-        "with_model_description": "false",  # we have our own custom model description
-        "log_level": "info",
-        "serial_number": "",
-        "conn_type": "rndis",
-        "lib_log_level": "ERROR",
-        "reconnect": "true",
-        "chassis_imu_includes_orientation": "false",
-        "chassis_twist_to_wheel_speeds": "true",
-    }
+    this_package_share = get_package_share_directory("donatello_perception")
 
-    launch_robomaster_ros_driver = IncludeLaunchDescription(
-        XMLLaunchDescriptionSource(
-            PathJoinSubstitution(
-                [FindPackageShare("robomaster_ros"), "launch", "ep.launch"]
-            ),
-        ),
-        launch_arguments=robomaster_launchfile_arguments.items(),
-    )
+    params_file_path = os.path.join(this_package_share, "config", "robomaster_ep.yaml")
 
-    # this is is needed because I can't change the tf_prefix parameter in the driver
-    # without removing the robomaster_ep namespace from the topics
-    static_odom_tf_publisher = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        arguments=["0", "0", "0", "0", "0", "0", "odom", "robomaster_ep/odom"],
+    robomaster_driver_node = Node(
+        package="robomaster_ros",
+        executable="robomaster_driver",
+        name="robomaster_driver",
+        namespace="robomaster_ep",
+        parameters=[params_file_path],
         output="both",
+        arguments=["--ros-args", "--log-level", "info"],
+        emulate_tty=True,
     )
 
     return LaunchDescription(
@@ -65,9 +48,8 @@ def generate_launch_description():
                 [
                     SetRemap(src="/robomaster_ep/odom", dst="/odom"),
                     SetRemap(src="/robomaster_ep/cmd_vel", dst="/cmd_vel"),
-                    launch_robomaster_ros_driver,
+                    robomaster_driver_node,
                 ]
             ),
-            static_odom_tf_publisher,
         ]
     )

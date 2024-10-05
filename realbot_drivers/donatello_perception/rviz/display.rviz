@@ -6,8 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Realsense Camera1
+        - /Realsense Camera1/Depth aligned to color1/Topic1
+        - /Realsense Camera1/Pointcloud1/Topic1
       Splitter Ratio: 0.6540697813034058
-    Tree Height: 447
+    Tree Height: 398
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -634,7 +636,7 @@ Visualization Manager:
           Name: Color
           Normalize Range: true
           Topic:
-            Depth: 5
+            Depth: 1
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
@@ -648,7 +650,7 @@ Visualization Manager:
           Name: Depth
           Normalize Range: true
           Topic:
-            Depth: 5
+            Depth: 1
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
@@ -662,7 +664,7 @@ Visualization Manager:
           Name: Depth aligned to color
           Normalize Range: true
           Topic:
-            Depth: 5
+            Depth: 1
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
@@ -693,7 +695,7 @@ Visualization Manager:
           Size (m): 0.009999999776482582
           Style: Flat Squares
           Topic:
-            Depth: 5
+            Depth: 1
             Durability Policy: Volatile
             Filter size: 10
             History Policy: Keep Last
@@ -775,7 +777,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 12.682584762573242
+      Distance: 3.8428540229797363
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -790,10 +792,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.0947960615158081
+      Pitch: 0.35979604721069336
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.8994553089141846
+      Yaw: 2.744455337524414
     Saved: ~
 Window Geometry:
   Color:
@@ -804,12 +806,12 @@ Window Geometry:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 1123
+  Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000002000000000000019a00000401fc0200000002fb000000100044006900730070006c006100790073010000004400000255000000eb00fffffffb0000000a0056006900650077007301000002a0000001a5000000b900ffffff000000010000021800000401fc0200000003fb0000002c0044006500700074006800200061006c00690067006e0065006400200074006f00200063006f006c006f007201000000440000016f0000002c00fffffffb0000000a0044006500700074006801000001ba0000014e0000002c00fffffffb0000000a0043006f006c006f0072010000030f000001360000002c00ffffff0000037e0000040100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000002000000000000019a000003a2fc0200000002fb000000100044006900730070006c006100790073010000003b0000021e000000c700fffffffb0000000a00560069006500770073010000025f0000017e000000a000ffffff0000000100000218000003a2fc0200000003fb0000002c0044006500700074006800200061006c00690067006e0065006400200074006f00200063006f006c006f0072010000003b0000014d0000002800fffffffb0000000a00440065007000740068010000018e000001300000002800fffffffb0000000a0043006f006c006f007201000002c4000001190000002800ffffff0000037c000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1854
-  X: 66
-  Y: 40
+  Width: 1850
+  X: 70
+  Y: 27

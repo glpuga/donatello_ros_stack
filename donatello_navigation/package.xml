@@ -18,6 +18,8 @@
   <depend>nav2_velocity_smoother</depend>
   <depend>nav2_waypoint_follower</depend>
 
+  <depend>donatello_twist_dithering</depend>
+
   <depend>launch</depend>
   <depend>launch_ros</depend>
 

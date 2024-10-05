@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 # Copyright 2024 Gerardo Puga
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,22 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+cmake_minimum_required(VERSION 3.5)
+project(donatello_bringup_realbot)
 
-from launch import LaunchDescription
-from launch_ros.actions import Node
+find_package(ament_cmake REQUIRED)
 
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
-def generate_launch_description():
-    return LaunchDescription(
-        [
-            Node(
-                package='teleop_twist_keyboard',
-                executable='teleop_twist_keyboard',
-                output='screen',
-                prefix='xterm -e',  # weird hack to make the node play nice with ros2 launch
-                remappings=[
-                    ('/cmd_vel', '/cmd_vel_teleop'),
-                ],
-            ),
-        ]
-    )
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()

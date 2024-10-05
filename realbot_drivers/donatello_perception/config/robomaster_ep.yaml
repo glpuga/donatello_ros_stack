@@ -1,0 +1,98 @@
+robomaster_ep/robomaster_driver:
+  ros__parameters:
+    name: 'robomaster_ep'
+    model: 'ep'
+    tf_prefix: ''
+    serial_number: ''
+    conn_type: 'sta'
+    lib_log_level: 'ERROR'
+    mode: 2
+    arm:
+      enabled: false
+      rate: 10
+      right_motor:
+        zero: 1024
+        direction: -1
+        angle: -0.274016
+        index: 1
+      left_motor:
+        zero: 1024
+        direction: 1
+        angle: 0.073304
+        index: 0
+    armor:
+      enabled: false
+      sensitivity: 0.5
+    battery:
+      enabled: true
+    blaster:
+      enabled: false
+    camera:
+      enabled: true
+      video:
+        raw: 1
+        h264: 0
+        ffmpeg: 0
+        resolution: 360
+        calibration_file: ''
+        rate: 10.0
+      audio:
+        raw: 0
+        opus: 0
+        level: 0
+    chassis:
+      enabled: true
+      rate: 20
+      status:
+        rate: 10
+      timeout: 0.0
+      twist_to_wheel_speeds: true
+      force_level: true
+      odom_twist_in_odom: false
+      imu_includes_orientation: true
+      error:
+        linear_velocity:
+          xy: 0.005
+        angular_velocity:
+          xy: 0.01
+          z: 0.03
+        linear_acceleration:
+          xyz: 0.1
+    gripper:
+      enabled: true
+    led:
+      enabled: true
+    pwm:
+      enabled: false
+      frequencies: [-1, -1, -1, -1, -1, -1]
+    sbus:
+      enabled: false
+    servo:
+      enabled: false
+      config: '$(find-pkg-share robomaster_ros)/config/servos.yaml'
+    speaker:
+      enabled: true
+    tof:
+      enabled: false
+      rate: 10
+    uart:
+      enabled: false
+      data_bit: 0
+      odd_even: 0
+      stop_bit: 0
+      baudrate: 115200
+      rx:
+        enabled: false
+        size: 50
+      tx:
+        enabled: false
+        size: 50
+    vision:
+      enabled: false
+      targets: []
+    gimbal:
+      enabled: false
+      rate: 10
+    sensor_adapter:
+      enabled: false
+      rate: 10

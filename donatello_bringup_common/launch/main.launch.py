@@ -26,7 +26,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     rviz_arg = DeclareLaunchArgument(
-        name="use_rviz", default_value="true", description="Launch RViz"
+        name="use_rviz", default_value="false", description="Launch RViz"
     )
 
     rviz_conf = LaunchConfiguration("use_rviz")
@@ -57,6 +57,10 @@ def generate_launch_description():
         build_launch_description_source("donatello_navigation")
     )
 
+    launch_misc = IncludeLaunchDescription(
+        build_launch_description_source("donatello_misc")
+    )
+
     return LaunchDescription(
         [
             rviz_arg,
@@ -65,5 +69,6 @@ def generate_launch_description():
             launch_teleop,
             launch_localization,
             launch_navigation,
+            launch_misc,
         ]
     )

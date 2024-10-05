@@ -15,6 +15,7 @@
   <depend>donatello_teleop</depend>
   <depend>donatello_localization</depend>
   <depend>donatello_navigation</depend>
+  <depend>donatello_misc</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

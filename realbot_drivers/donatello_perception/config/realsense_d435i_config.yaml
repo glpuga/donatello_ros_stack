@@ -14,7 +14,7 @@ camera/realsense2_camera_driver:
     output: 'screen'
     enable_color: true
     rgb_camera:
-      color_profile: '0,0,0'
+      color_profile: '1280x720x6'
       color_format: 'RGB8'
       enable_auto_exposure: true
     enable_depth: true
@@ -22,9 +22,9 @@ camera/realsense2_camera_driver:
     enable_infra1: false
     enable_infra2: false
     depth_module:
-      depth_profile: '0,0,0'
+      depth_profile: '640x480x6'
       depth_format: 'Z16'
-      infra_profile: '0,0,0'
+      infra_profile: '640x480x6'
       infra_format: 'RGB8'
       infra1_format: 'Y8'
       infra2_format: 'Y8'
@@ -36,14 +36,14 @@ camera/realsense2_camera_driver:
       gain.1: 16
       exposure.2: 1
       gain.2: 16
-    enable_sync: true
-    enable_rgbd: true
+    enable_sync: false
+    enable_rgbd: false
     enable_gyro: true
     enable_accel: true
     gyro_fps: 0
     accel_fps: 0
     unite_imu_method: 0
-    clip_distance: -2.
+    clip_distance: 3.0
     angular_velocity_cov: 0.01
     linear_accel_cov: 0.01
     diagnostics_period: 0.0

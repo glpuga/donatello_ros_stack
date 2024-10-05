@@ -3,11 +3,11 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [1.5, 1.5, 9.6]
-    min_velocity: [-1.5, -1.5, -9.6]
-    max_accel: [3.0, 3.0, 18.0]
-    max_decel: [-3.0, -3.0, -18.0]
+    max_velocity: [1.5, 1.5, 1.5]
+    min_velocity: [-1.5, -1.5, -1.5]
+    max_accel: [1.0, 1.0, 3.0]
+    max_decel: [-10.0, -10.0, -18.]
     odom_topic: "odom"
     odom_duration: 0.1
-    deadband_velocity: [0.0, 0.0, 0.0]
+    deadband_velocity: [0.01, 0.01, 0.01]
     velocity_timeout: 1.0

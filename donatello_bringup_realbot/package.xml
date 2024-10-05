@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>donatello_perception</name>
+  <name>donatello_bringup_realbot</name>
   <version>1.0.0</version>
   <description> TBD </description>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
@@ -9,13 +9,8 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>donatello_description</depend>
-  <depend>donatello_teleop</depend>
-
-  <depend>realsense2_camera</depend>
-  <depend>robomaster_ros</depend>
-  <depend>rplidar_ros</depend>
-  <depend>rviz_imu_plugin</depend>
+  <depend>donatello_perception</depend>
+  <depend>donatello_bringup_common</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

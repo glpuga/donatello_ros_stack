@@ -14,22 +14,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-from launch import LaunchDescription
+from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
+from launch import LaunchDescription
+
+import os
 
 
 def generate_launch_description():
-    return LaunchDescription(
-        [
-            Node(
-                package='teleop_twist_keyboard',
-                executable='teleop_twist_keyboard',
-                output='screen',
-                prefix='xterm -e',  # weird hack to make the node play nice with ros2 launch
-                remappings=[
-                    ('/cmd_vel', '/cmd_vel_teleop'),
-                ],
-            ),
-        ]
+    share_dir = get_package_share_directory("donatello_misc")
+
+    cmd_vel_mux_params_file = os.path.join(
+        share_dir, "config", "cmd_vel_mux_params.yaml"
     )
+
+    remappings = {"/cmd_vel_out": "/cmd_vel_mux"}
+
+    twist_mux_node = Node(
+        package="twist_mux",
+        executable="twist_mux",
+        name="cmd_vel_mux",
+        output="both",
+        parameters=[cmd_vel_mux_params_file],
+        remappings=remappings.items(),
+    )
+
+    return LaunchDescription([twist_mux_node])

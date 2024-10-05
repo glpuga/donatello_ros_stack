@@ -9,6 +9,25 @@ RUN mkdir -p /tmp/ws/src \
  && find ./ -name "COLCON_IGNORE" | xargs cp --parents -t /tmp/ws/src \
  || true
 
+FROM ros:humble-ros-base-jammy AS realsense_cacher
+
+WORKDIR /root
+
+RUN sudo apt update \
+ && sudo apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+ && sudo apt-get install -y git wget cmake build-essential \
+ && sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
+ && sudo rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/IntelRealSense/librealsense.git
+
+RUN /bin/bash -c '\
+    cd librealsense \
+ && mkdir build \
+ && cd build \
+ && cmake .. -DCMAKE_BUILD_TYPE=release -DFORCE_RSUSB_BACKEND=true -DBUILD_WITH_CUDA=false \
+ && make -j1'
+
 FROM ros:humble-ros-base-jammy AS main_development_image
 
 ARG USER=developer
@@ -40,6 +59,16 @@ RUN addgroup --gid 1000 $GROUP \
  && adduser $USER sudo \
  && adduser $USER dialout \
  && echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/$USER
+
+ RUN sudo apt update \
+ && sudo apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+ && sudo apt-get install -y git wget cmake build-essential \
+ && sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
+ && sudo rm -rf /var/lib/apt/lists/*
+
+COPY --from=realsense_cacher /root/librealsense /root/librealsense
+RUN cd /root/librealsense/build \
+ && sudo make install
 
 USER $USER:$GROUP
 

@@ -74,7 +74,7 @@ def generate_launch_description():
         ],
         remappings={
             ("/joy", "/teleop/joystick"),
-            ("/cmd_vel", "/cmd_vel"),
+            ("/cmd_vel", "/cmd_vel_teleop"),
         },
     )
 

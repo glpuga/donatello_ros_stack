@@ -1,24 +1,24 @@
 controller_server:
   ros__parameters:
-    controller_frequency: 20.0
+    controller_frequency: 5.0
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
-      time_steps: 80
-      model_dt: 0.05
+      time_steps: 10
+      model_dt: 0.2
       batch_size: 2000
       vx_std: 0.3
       vy_std: 0.2
       wz_std: 0.5
       vx_max: 1.0
-      vx_min: -0.25
+      vx_min: 0.0
       vy_max: 0.20
-      wz_max: 9.6
-      ax_max: 3.0
-      ax_min: -6.0
-      ay_max: 3.0
-      az_max: 18.0
+      wz_max: 1.5
+      ax_max: 1.0
+      ax_min: -1.0
+      ay_max: 1.0
+      az_max: 3.0
       iteration_count: 1
-      prune_distance: 4.0
+      prune_distance: 2.0
       transform_tolerance: 0.1
       temperature: 0.3
       gamma: 0.015
@@ -41,6 +41,7 @@ controller_server:
         - "PathAngleCritic"
         - "PreferForwardCritic"
         - "TwirlingCritic"
+        - "VelocityDeadbandCritic"
       ConstraintCritic:
         enabled: true
         cost_power: 1
@@ -98,3 +99,8 @@ controller_server:
         enabled: true
         twirling_cost_power: 1
         twirling_cost_weight: 10.0
+      VelocityDeadbandCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 35.0
+        deadband_velocities: [0.01, 0.01, 0.01]
