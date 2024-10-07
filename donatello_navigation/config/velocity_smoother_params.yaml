@@ -9,5 +9,5 @@ velocity_smoother:
     max_decel: [-10.0, -10.0, -18.]
     odom_topic: "odom"
     odom_duration: 0.1
-    deadband_velocity: [0.01, 0.01, 0.01]
+    deadband_velocity: [0.1, 0.1, 0.5]
     velocity_timeout: 1.0

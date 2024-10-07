@@ -142,10 +142,11 @@ def generate_launch_description():
         respawn=True,
         arguments=["--ros-args", "--log-level", "info"],
         parameters=[
-            {"robot_hysteresis": [0.1, 0.1, 0.75]},
+            {"robot_hysteresis": [0.1, 0.1, 0.5]},
             {"virtual_hysteresis": [0.01, 0.01, 0.01]},
             {"frequency": 20.0},
             {"timeout": 1.0},
+            {"mode": 0},
         ],
         remappings=[
             ('/cmd_vel_in', '/cmd_vel_smoother'),

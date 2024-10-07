@@ -1,22 +1,22 @@
 controller_server:
   ros__parameters:
-    controller_frequency: 5.0
+    controller_frequency: 10.0
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
       time_steps: 20
-      model_dt: 0.2
-      batch_size: 2000
-      vx_std: 0.3
+      model_dt: 0.1
+      batch_size: 1000
+      vx_std: 0.2
       vy_std: 0.2
       wz_std: 0.5
       vx_max: 1.0
-      vx_min: 0.0
+      vx_min: -0.15
       vy_max: 0.20
       wz_max: 1.5
-      ax_max: 1.0
-      ax_min: -1.0
+      ax_max: 0.5
+      ax_min: -0.5
       ay_max: 1.0
-      az_max: 3.0
+      az_max: 1.0
       iteration_count: 1
       prune_distance: 2.0
       transform_tolerance: 0.1
@@ -59,23 +59,23 @@ controller_server:
       PreferForwardCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 15.0
         threshold_to_consider: 0.50
       ObstaclesCritic:
         enabled: true
-        cost_power: 1
+        cost_power: 2
         repulsion_weight: 1.5
         critical_weight: 20.0
         consider_footprint: true
         collision_cost: 10000.0
-        collision_margin_distance: 0.1
+        collision_margin_distance: 0.2
         near_goal_distance: 0.5
-        inflation_radius: 0.25 # (only in Humble)
+        inflation_radius: 0.5 # (only in Humble)
         cost_scaling_factor: 3.0 # (only in Humble)
       PathAlignCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 40.0
+        cost_weight: 20.0
         max_path_occupancy_ratio: 0.05
         trajectory_point_step: 3
         threshold_to_consider: 0.50
@@ -84,7 +84,7 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 40.0
         offset_from_furthest: 5
         threshold_to_consider: 0.5
       PathAngleCritic:
@@ -103,4 +103,4 @@ controller_server:
         enabled: true
         cost_power: 1
         cost_weight: 35.0
-        deadband_velocities: [0.01, 0.01, 0.01]
+        deadband_velocities: [0.1, 0.1, 0.5]

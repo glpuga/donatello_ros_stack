@@ -107,6 +107,8 @@ class TwistDitherNode(Node):
 
     def dither_value(self, value, robot_hysteresis, virtual_hysteresis):
         """Dither a value."""
+        if self.mode_ == 0:
+            return value
         module = abs(value)
         # If the value is greater than the robot hysteresis, we won't interfere with it.
         if module > robot_hysteresis:
@@ -115,7 +117,7 @@ class TwistDitherNode(Node):
         if module < virtual_hysteresis:
             return 0.0
         sign = 1.0 if value > 0.0 else -1.0
-        if self.mode_ == 0:
+        if self.mode_ == 1:
             return robot_hysteresis * sign
         # For anything in the middle, we will dither the value by time averaging.
         p = value / robot_hysteresis
