@@ -46,7 +46,7 @@ amcl:
     # Resample will happen after the amount of updates specified here happen.
     resample_interval: 1
     # Minimum angle difference from last resample for resampling to happen again.
-    update_min_a: 0.2
+    update_min_a: 0.05
     # Maximum angle difference from last resample for resampling to happen again.
     update_min_d: 0.25
     # Laser sensor model type.

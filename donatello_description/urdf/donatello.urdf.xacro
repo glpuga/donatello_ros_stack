@@ -8,11 +8,11 @@
   <xacro:property name="package_name" value="donatello_description" />
   <xacro:property name="robot_name" value="donatello" />
 
-  <!-- setting a prefix to avoid a name conflict between the robot desdription and
+  <!-- setting a prefix to avoid a name conflict between the robot description and
   the realsense sensor description. -->
   <xacro:property name="tf_prefix" value="donatello_" />
 
-  <!-- creating a base link frame to use starndard naming despite the prefix -->
+  <!-- creating a base link frame to use standard naming despite the prefix -->
   <link name="base_link" />
   <joint name="base_link_joint" type="fixed">
     <parent link="base_link" />

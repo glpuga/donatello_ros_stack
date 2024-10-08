@@ -2,7 +2,7 @@ robomaster_ep/robomaster_driver:
   ros__parameters:
     name: 'robomaster_ep'
     model: 'ep'
-    tf_prefix: ''
+    tf_prefix: 'donatello'
     serial_number: ''
     conn_type: 'sta'
     lib_log_level: 'ERROR'
@@ -28,7 +28,7 @@ robomaster_ep/robomaster_driver:
     blaster:
       enabled: false
     camera:
-      enabled: true
+      enabled: false
       video:
         raw: 1
         h264: 0

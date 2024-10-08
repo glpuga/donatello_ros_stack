@@ -1,22 +1,22 @@
 controller_server:
   ros__parameters:
-    controller_frequency: 10.0
+    controller_frequency: 5.0
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
-      time_steps: 20
-      model_dt: 0.1
+      time_steps: 10
+      model_dt: 0.2
       batch_size: 1000
       vx_std: 0.2
       vy_std: 0.2
       wz_std: 0.5
-      vx_max: 1.0
-      vx_min: -0.15
+      vx_max: 0.5
+      vx_min: -0.05
       vy_max: 0.20
       wz_max: 1.5
-      ax_max: 0.5
-      ax_min: -0.5
-      ay_max: 1.0
-      az_max: 1.0
+      ax_max: 0.25
+      ax_min: -0.25
+      ay_max: 0.25
+      az_max: 3.0
       iteration_count: 1
       prune_distance: 2.0
       transform_tolerance: 0.1
@@ -103,4 +103,4 @@ controller_server:
         enabled: true
         cost_power: 1
         cost_weight: 35.0
-        deadband_velocities: [0.1, 0.1, 0.5]
+        deadband_velocities: [0.1, 0.1, 0.6]
