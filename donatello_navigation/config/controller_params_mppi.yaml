@@ -1,5 +1,10 @@
 controller_server:
   ros__parameters:
+    goal_checker_plugins: ["goal_checker"]
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.5
+      yaw_goal_tolerance: 0.5
     controller_frequency: 5.0
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
