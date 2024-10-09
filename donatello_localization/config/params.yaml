@@ -15,9 +15,9 @@ amcl:
     # The name of the coordinate frame published by the localization system.
     global_frame_id: map
     # The name of the coordinate frame published by the odometry system.
-    odom_frame_id: odom
+    odom_frame_id: donatello/odom
     # The name of the coordinate frame of the robot base.
-    base_frame_id: base_link
+    base_frame_id: donatello/base_link
     # The name of the topic where the map is published by the map server.
     map_topic: map
     # The name of the topic where scans are being published.

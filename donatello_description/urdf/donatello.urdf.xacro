@@ -10,14 +10,7 @@
 
   <!-- setting a prefix to avoid a name conflict between the robot description and
   the realsense sensor description. -->
-  <xacro:property name="tf_prefix" value="donatello_" />
-
-  <!-- creating a base link frame to use standard naming despite the prefix -->
-  <link name="base_link" />
-  <joint name="base_link_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="donatello_base_link" />
-  </joint>
+  <xacro:property name="tf_prefix" value="donatello/" />
 
   <xacro:include filename="common_colors.urdf.xacro" />
 
