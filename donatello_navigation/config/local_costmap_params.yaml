@@ -9,7 +9,7 @@ local_costmap:
       width: 4
       height: 4
       resolution: 0.1
-      footprint: "[ [0.35, 0.16], [0.35, -0.16], [-0.3, -0.16], [-0.3, 0.16] ]"
+      footprint: "[ [0.30, 0.16], [0.30, -0.16], [-0.20, -0.16], [-0.20, 0.16] ]"
       plugins: ["obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
