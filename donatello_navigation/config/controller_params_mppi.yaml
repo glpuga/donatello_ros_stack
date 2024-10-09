@@ -1,13 +1,18 @@
 controller_server:
   ros__parameters:
+    controller_frequency: 5.0
     goal_checker_plugins: ["goal_checker"]
     goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.5
       yaw_goal_tolerance: 0.5
-    controller_frequency: 5.0
     FollowPath:
-      plugin: "nav2_mppi_controller::MPPIController"
+      plugin: "nav2_rotation_shim_controller::RotationShimController"
+      primary_controller: "nav2_mppi_controller::MPPIController"
+      # shim controller params
+      rotate_to_heading_angular_vel: 1.5
+      max_angular_accel: 3.0
+      # primary controller params
       time_steps: 10
       model_dt: 0.2
       batch_size: 1000

@@ -25,6 +25,7 @@
 
   <depend>nav2_dwb_controller</depend>
   <depend>nav2_mppi_controller</depend>
+  <depend>nav2_rotation_shim_controller</depend>
 
   <depend>nav2_navfn_planner</depend>
 
