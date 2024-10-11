@@ -23,3 +23,7 @@ repositories:
     type: git
     url: https://github.com/IntelRealSense/realsense-ros.git
     version: 1cbd81be81e807eefb46f098e76381888ffc7001
+  rf2o_laser_odometry:
+    type: git
+    url: https://github.com/glpuga/rf2o_laser_odometry.git
+    version: 2d2d7af13f1fae8747e9dfa13fa4438ddda5b4f7

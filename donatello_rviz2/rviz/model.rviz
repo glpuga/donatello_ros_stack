@@ -7,14 +7,14 @@ Panels:
         - /Global Options1
         - /Model1
         - /Perception1
-        - /Perception1/Realsense Color1
         - /Perception1/Realsense Color1/Topic1
-        - /Perception1/Realsense Pointcloud1
         - /Perception1/Realsense Pointcloud1/Topic1
+        - /Odometry1
+        - /Odometry1/Odometry rf2o1
         - /Localization1
         - /Navigation1
       Splitter Ratio: 0.6322314143180847
-    Tree Height: 441
+    Tree Height: 405
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -61,10 +61,6 @@ Visualization Manager:
             Expand Link Details: false
             Expand Tree: false
             Link Tree Style: Links in Alphabetic Order
-            donatello/base_link:
-              Alpha: 1
-              Show Axes: false
-              Show Trail: false
             camera_accel_frame:
               Alpha: 1
               Show Axes: false
@@ -372,8 +368,6 @@ Visualization Manager:
           Frame Timeout: 15
           Frames:
             All Enabled: true
-            donatello/base_link:
-              Value: true
             camera_accel_frame:
               Value: true
             camera_accel_optical_frame:
@@ -434,6 +428,10 @@ Visualization Manager:
               Value: true
             donatello/front_led_link:
               Value: true
+            donatello/front_left_wheel_link:
+              Value: true
+            donatello/front_right_wheel_link:
+              Value: true
             donatello/gripper_link_link:
               Value: true
             donatello/gripper_m_link:
@@ -458,9 +456,15 @@ Visualization Manager:
               Value: true
             donatello/lidar_base_link:
               Value: true
+            donatello/odom:
+              Value: true
             donatello/rear_hit_sensor_link:
               Value: true
             donatello/rear_led_link:
+              Value: true
+            donatello/rear_left_wheel_link:
+              Value: true
+            donatello/rear_right_wheel_link:
               Value: true
             donatello/right_gripper_link_1:
               Value: true
@@ -490,8 +494,6 @@ Visualization Manager:
               Value: true
             map:
               Value: true
-            donatello/odom:
-              Value: true
             rear_mesh_link:
               Value: true
             rear_rplidar_optical_link:
@@ -505,88 +507,95 @@ Visualization Manager:
             map:
               donatello/odom:
                 donatello/base_link:
-                  donatello/base_link:
-                    donatello/chassis_base_link:
-                      donatello/arm_base_link:
-                        donatello/arm_1_link:
-                          donatello/arm_2_link:
-                            donatello/camera_link:
-                              donatello/camera_optical_link:
-                                {}
-                            donatello/endpoint_bracket_link:
-                              donatello/end_point_link:
-                                {}
-                              donatello/gripper_link_link:
-                                donatello/camera_support_link:
-                                  donatello/depth_camera_mount_link:
-                                    camera_bottom_screw_frame:
-                                      camera_link:
-                                        camera_accel_frame:
-                                          camera_accel_optical_frame:
-                                            {}
-                                        camera_color_frame:
-                                          camera_color_optical_frame:
-                                            {}
-                                        camera_depth_frame:
-                                          camera_depth_optical_frame:
-                                            {}
-                                        camera_gyro_frame:
-                                          camera_gyro_optical_frame:
-                                            {}
-                                        camera_infra1_frame:
-                                          camera_infra1_optical_frame:
-                                            {}
-                                        camera_infra2_frame:
-                                          camera_infra2_optical_frame:
-                                            {}
-                                donatello/gripper_m_link:
-                                  donatello/left_gripper_link_1:
-                                    donatello/left_gripper_link_2:
-                                      donatello/left_gripper_link_4:
-                                        donatello/left_gripper_link_5:
-                                          donatello/left_gripper_link_6:
-                                            donatello/left_gripper_link_7:
-                                              {}
-                                  donatello/right_gripper_link_1:
-                                    donatello/right_gripper_link_2:
-                                      donatello/right_gripper_link_4:
-                                        donatello/right_gripper_link_5:
-                                          donatello/right_gripper_link_6:
-                                            donatello/right_gripper_link_7:
-                                              {}
-                                donatello/gripper_t_link:
-                                  {}
-                              donatello/rod_1_link:
-                                {}
-                          donatello/triangle_link:
-                            {}
-                        donatello/controller_support_link:
-                          {}
-                        donatello/cpu_lidar_shelves:
-                          donatello/lidar_base_link:
-                            rear_mesh_link:
+                  donatello/chassis_base_link:
+                    donatello/arm_base_link:
+                      donatello/arm_1_link:
+                        donatello/arm_2_link:
+                          donatello/camera_link:
+                            donatello/camera_optical_link:
                               {}
-                            rear_rplidar_optical_link:
+                          donatello/endpoint_bracket_link:
+                            donatello/end_point_link:
                               {}
-                        donatello/rod_2_link:
+                            donatello/gripper_link_link:
+                              donatello/camera_support_link:
+                                donatello/depth_camera_mount_link:
+                                  camera_bottom_screw_frame:
+                                    camera_link:
+                                      camera_accel_frame:
+                                        camera_accel_optical_frame:
+                                          {}
+                                      camera_color_frame:
+                                        camera_color_optical_frame:
+                                          {}
+                                      camera_depth_frame:
+                                        camera_depth_optical_frame:
+                                          {}
+                                      camera_gyro_frame:
+                                        camera_gyro_optical_frame:
+                                          {}
+                                      camera_infra1_frame:
+                                        camera_infra1_optical_frame:
+                                          {}
+                                      camera_infra2_frame:
+                                        camera_infra2_optical_frame:
+                                          {}
+                              donatello/gripper_m_link:
+                                donatello/left_gripper_link_1:
+                                  donatello/left_gripper_link_2:
+                                    donatello/left_gripper_link_4:
+                                      donatello/left_gripper_link_5:
+                                        donatello/left_gripper_link_6:
+                                          donatello/left_gripper_link_7:
+                                            {}
+                                donatello/right_gripper_link_1:
+                                  donatello/right_gripper_link_2:
+                                    donatello/right_gripper_link_4:
+                                      donatello/right_gripper_link_5:
+                                        donatello/right_gripper_link_6:
+                                          donatello/right_gripper_link_7:
+                                            {}
+                              donatello/gripper_t_link:
+                                {}
+                            donatello/rod_1_link:
+                              {}
+                        donatello/triangle_link:
                           {}
-                        donatello/rod_link:
-                          donatello/rod_3_link:
-                            {}
-                      donatello/extension_base_link:
+                      donatello/controller_support_link:
                         {}
-                      donatello/front_hit_sensor_link:
-                        donatello/front_led_link:
+                      donatello/cpu_lidar_shelves:
+                        donatello/lidar_base_link:
+                          rear_mesh_link:
+                            {}
+                          rear_rplidar_optical_link:
+                            {}
+                      donatello/rod_2_link:
+                        {}
+                      donatello/rod_link:
+                        donatello/rod_3_link:
                           {}
-                      donatello/left_hit_sensor_link:
-                        donatello/left_led_link:
-                          {}
-                      donatello/rear_hit_sensor_link:
-                        donatello/rear_led_link:
-                          {}
-                      donatello/right_hit_sensor_link:
-                        donatello/right_led_link:
-                          {}
+                    donatello/extension_base_link:
+                      {}
+                    donatello/front_hit_sensor_link:
+                      donatello/front_led_link:
+                        {}
+                    donatello/front_left_wheel_link:
+                      {}
+                    donatello/front_right_wheel_link:
+                      {}
+                    donatello/left_hit_sensor_link:
+                      donatello/left_led_link:
+                        {}
+                    donatello/rear_hit_sensor_link:
+                      donatello/rear_led_link:
+                        {}
+                    donatello/rear_left_wheel_link:
+                      {}
+                    donatello/rear_right_wheel_link:
+                      {}
+                    donatello/right_hit_sensor_link:
+                      donatello/right_led_link:
+                        {}
           Update Interval: 0
           Value: true
       Enabled: true
@@ -656,7 +665,7 @@ Visualization Manager:
           Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 47
+          Max Intensity: 0
           Min Color: 0; 0; 0
           Min Intensity: 0
           Name: RPLidar Scan
@@ -674,6 +683,17 @@ Visualization Manager:
             Value: /scan
           Use Fixed Frame: true
           Use rainbow: true
+          Value: true
+      Enabled: true
+      Name: Perception
+    - Class: rviz_common/Group
+      Displays:
+        - Class: rviz_default_plugins/Axes
+          Enabled: true
+          Length: 1
+          Name: odom frame
+          Radius: 0.10000000149011612
+          Reference Frame: donatello/odom
           Value: true
         - Angle Tolerance: 0.10000000149011612
           Class: rviz_default_plugins/Odometry
@@ -694,7 +714,7 @@ Visualization Manager:
             Value: true
           Enabled: true
           Keep: 20
-          Name: Base Odometry
+          Name: Odometry encoders
           Position Tolerance: 0.10000000149011612
           Shape:
             Alpha: 1
@@ -714,17 +734,49 @@ Visualization Manager:
             Reliability Policy: Reliable
             Value: /odom
           Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz_default_plugins/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 20
+          Name: Odometry rf2o
+          Position Tolerance: 0.10000000149011612
+          Shape:
+            Alpha: 1
+            Axes Length: 1
+            Axes Radius: 0.10000000149011612
+            Color: 25; 120; 120
+            Head Length: 0.10000000149011612
+            Head Radius: 0.05000000074505806
+            Shaft Length: 0.10000000149011612
+            Shaft Radius: 0.019999999552965164
+            Value: Arrow
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /odom_rf2o
+          Value: true
       Enabled: true
-      Name: Perception
+      Name: Odometry
     - Class: rviz_common/Group
       Displays:
-        - Class: rviz_default_plugins/Axes
-          Enabled: true
-          Length: 1
-          Name: odom frame
-          Radius: 0.10000000149011612
-          Reference Frame: donatello/odom
-          Value: true
         - Class: rviz_default_plugins/Axes
           Enabled: true
           Length: 1
@@ -880,34 +932,6 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: Navigation
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz_default_plugins/Path
-      Color: 25; 255; 0
-      Enabled: true
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Path
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /plan_smoothed
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -949,7 +973,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: -0.5799999237060547
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -959,11 +983,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 135.5234832763672
+      Scale: 66.60014343261719
       Target Frame: donatello/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -1.0952353477478027e-06
-      Y: 7.152557373046875e-07
+      X: -0.7812681794166565
+      Y: -2.5197689533233643
     Saved:
       - Class: rviz_default_plugins/Orbit
         Distance: 2.43806529045105
@@ -991,11 +1015,11 @@ Window Geometry:
   Height: 1016
   Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd0000000100000000000001e6000003a2fc0200000004fb000000100044006900730070006c006100790073010000003b00000249000000c700fffffffb0000000a00560069006500770073010000028a000000a0000000a000fffffffb0000001e005200650061006c00730065006e0073006500200043006f006c006f00720100000330000000ad0000002800fffffffb00000018004e0061007600690067006100740069006f006e0020003200000002ba0000012300000000000000000000054e000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000001e600000396fc0200000004fb000000100044006900730070006c00610079007301000000440000022b000000eb00fffffffb0000000a005600690065007700730100000276000000b9000000b900fffffffb0000001e005200650061006c00730065006e0073006500200043006f006c006f00720100000336000000a40000002c00fffffffb00000018004e0061007600690067006100740069006f006e0020003200000002ba0000012300000000000000000000054d0000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Realsense Color:
     collapsed: false
   Views:
     collapsed: false
   Width: 1850
-  X: 0
-  Y: 37
+  X: 66
+  Y: 40
