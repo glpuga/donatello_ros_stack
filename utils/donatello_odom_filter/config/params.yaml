@@ -1,0 +1,29 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 40.0
+    two_d_mode: true
+    publish_tf: true
+    map_frame: map
+    odom_frame: donatello/odom
+    base_link_frame: donatello/base_link
+    world_frame: donatello/odom
+
+    # include the control action in the filter
+    use_control: false
+    stamped_control: false
+
+    odom0: /odom_robomaster
+    odom0_config: [true,  true,  true,
+                   false, false, false,
+                   false, false, false,
+                   false, false, true,
+                   false, false, false]
+    odom0_differential: false
+
+    odom1: /odom_rf2o
+    odom1_config: [true,  true,  true,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false]
+    odom1_differential: true

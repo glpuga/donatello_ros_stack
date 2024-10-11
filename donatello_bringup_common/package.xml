@@ -16,6 +16,8 @@
   <depend>donatello_localization</depend>
   <depend>donatello_navigation</depend>
   <depend>donatello_misc</depend>
+  <depend>donatello_rf2o_odom</depend>
+  <depend>donatello_odom_filter</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

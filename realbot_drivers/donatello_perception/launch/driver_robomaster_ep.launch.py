@@ -46,7 +46,7 @@ def generate_launch_description():
         [
             GroupAction(
                 [
-                    SetRemap(src="/robomaster_ep/odom", dst="/odom"),
+                    SetRemap(src="/robomaster_ep/odom", dst="/odom_robomaster"),
                     SetRemap(src="/robomaster_ep/cmd_vel", dst="/cmd_vel"),
                     SetRemap(src="/robomaster_ep/joint_states_p", dst="/joint_states"),
                     robomaster_driver_node,

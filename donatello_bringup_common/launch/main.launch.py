@@ -57,8 +57,12 @@ def generate_launch_description():
         build_launch_description_source("donatello_navigation")
     )
 
-    donatello_rf2o_odom = IncludeLaunchDescription(
+    launch_odom_rf2o = IncludeLaunchDescription(
         build_launch_description_source("donatello_rf2o_odom")
+    )
+
+    launch_odom_filter = IncludeLaunchDescription(
+        build_launch_description_source("donatello_odom_filter")
     )
 
     launch_misc = IncludeLaunchDescription(
@@ -73,7 +77,8 @@ def generate_launch_description():
             launch_teleop,
             launch_localization,
             launch_navigation,
-            donatello_rf2o_odom,
+            launch_odom_rf2o,
+            launch_odom_filter,
             launch_misc,
         ]
     )

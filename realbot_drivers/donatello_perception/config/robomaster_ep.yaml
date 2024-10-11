@@ -42,10 +42,11 @@ robomaster_ep/robomaster_driver:
         level: 0
     chassis:
       enabled: true
-      rate: 20
+      rate: 40
       status:
         rate: 10
       timeout: 0.0
+      publish_tf: false
       twist_to_wheel_speeds: true
       force_level: true
       odom_twist_in_odom: false

@@ -28,11 +28,11 @@
         <min_acceleration>-5</min_acceleration>
         <max_acceleration>5</max_acceleration>
         <topic>cmd_vel</topic>
-        <odom_topic>odom</odom_topic>
+        <odom_topic>odom_robomaster</odom_topic>
         <tf_topic>tf</tf_topic>
         <frame_id>donatello/odom</frame_id>
         <child_frame_id>donatello/base_link</child_frame_id>
-        <odom_publish_frequency>50</odom_publish_frequency>
+        <odom_publish_frequency>40</odom_publish_frequency>
 
         <!-- play with these three to simulate bad dometry -->
         <wheel_separation>0.20</wheel_separation>

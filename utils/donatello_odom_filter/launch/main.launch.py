@@ -14,28 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
 from launch import LaunchDescription
 
+import os
+
 
 def generate_launch_description():
-    rf2o_laser_odom_node = Node(
-        package='rf2o_laser_odometry',
-        executable='rf2o_laser_odometry_node',
-        name='rf2o_laser_odometry',
-        output='log',
-        arguments=["--ros-args", "--log-level", "error"],
-        parameters=[
-            {
-                'laser_scan_topic': '/scan',
-                'odom_topic': '/odom_rf2o',
-                'base_frame_id': 'donatello/base_link',
-                'odom_frame_id': 'donatello/odom',
-                'publish_tf': False,
-                'init_pose_from_topic': '',  # Keep blank to disable
-                'freq': 10.0,
-            }
-        ],
+    share_dir = get_package_share_directory('donatello_odom_filter')
+
+    params_file = os.path.join(share_dir, 'config', 'params.yaml')
+
+    robot_localization_filter = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='both',
+        parameters=[params_file],
+        remappings=[('/odometry/filtered', '/odom')],
     )
 
-    return LaunchDescription([rf2o_laser_odom_node])
+    return LaunchDescription([robot_localization_filter])

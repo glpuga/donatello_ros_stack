@@ -10,7 +10,8 @@ Panels:
         - /Perception1/Realsense Color1/Topic1
         - /Perception1/Realsense Pointcloud1/Topic1
         - /Odometry1
-        - /Odometry1/Odometry rf2o1
+        - /Odometry1/Odometry filtered1
+        - /Odometry1/Odometry filtered1/Shape1
         - /Localization1
         - /Navigation1
       Splitter Ratio: 0.6322314143180847
@@ -492,6 +493,8 @@ Visualization Manager:
               Value: true
             donatello/triangle_link:
               Value: true
+            gazebo/base_link:
+              Value: true
             map:
               Value: true
             rear_mesh_link:
@@ -596,6 +599,8 @@ Visualization Manager:
                     donatello/right_hit_sensor_link:
                       donatello/right_led_link:
                         {}
+                gazebo/base_link:
+                  {}
           Update Interval: 0
           Value: true
       Enabled: true
@@ -732,7 +737,7 @@ Visualization Manager:
             Filter size: 10
             History Policy: Keep Last
             Reliability Policy: Reliable
-            Value: /odom
+            Value: /odom_robomaster
           Value: true
         - Angle Tolerance: 0.10000000149011612
           Class: rviz_default_plugins/Odometry
@@ -772,6 +777,45 @@ Visualization Manager:
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /odom_rf2o
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz_default_plugins/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: false
+          Enabled: true
+          Keep: 20
+          Name: Odometry filtered
+          Position Tolerance: 0.10000000149011612
+          Shape:
+            Alpha: 1
+            Axes Length: 1
+            Axes Radius: 0.10000000149011612
+            Color: 25; 0; 120
+            Head Length: 0.10000000149011612
+            Head Radius: 0.05000000074505806
+            Shaft Length: 0.10000000149011612
+            Shaft Radius: 0.019999999552965164
+            Value: Arrow
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /odom
           Value: true
       Enabled: true
       Name: Odometry
@@ -973,7 +1017,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -0.5799999237060547
+      Angle: 0
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -983,11 +1027,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 66.60014343261719
+      Scale: 69.5232925415039
       Target Frame: donatello/base_link
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -0.7812681794166565
-      Y: -2.5197689533233643
+      X: 0
+      Y: 0
     Saved:
       - Class: rviz_default_plugins/Orbit
         Distance: 2.43806529045105
