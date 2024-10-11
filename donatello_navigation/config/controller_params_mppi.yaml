@@ -19,8 +19,8 @@ controller_server:
       vx_std: 0.2
       vy_std: 0.2
       wz_std: 0.5
-      vx_max: 0.5
-      vx_min: -0.05
+      vx_max: 1.0
+      vx_min: -0.25
       vy_max: 0.20
       wz_max: 1.5
       ax_max: 0.25
@@ -73,19 +73,19 @@ controller_server:
         threshold_to_consider: 0.50
       ObstaclesCritic:
         enabled: true
-        cost_power: 2
+        cost_power: 1
         repulsion_weight: 1.5
-        critical_weight: 20.0
+        critical_weight: 40.0
         consider_footprint: true
         collision_cost: 10000.0
-        collision_margin_distance: 0.2
+        collision_margin_distance: 0.25
         near_goal_distance: 0.5
-        inflation_radius: 0.5 # (only in Humble)
-        cost_scaling_factor: 3.0 # (only in Humble)
+        inflation_radius: 0.25 # (only in Humble)
+        cost_scaling_factor: 30.0 # (only in Humble)
       PathAlignCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 20.0
+        cost_weight: 5.0
         max_path_occupancy_ratio: 0.05
         trajectory_point_step: 3
         threshold_to_consider: 0.50
@@ -94,16 +94,16 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 40.0
+        cost_weight: 10.0
         offset_from_furthest: 5
         threshold_to_consider: 0.5
       PathAngleCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 2.0
+        cost_weight: 30.0
         offset_from_furthest: 4
         threshold_to_consider: 0.25
-        max_angle_to_furthest: 1.0
+        max_angle_to_furthest: 0.5
         mode: 0
       TwirlingCritic:
         enabled: true
