@@ -1,25 +1,16 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>donatello_bringup_common</name>
+  <name>donatello_mapping_utils</name>
   <version>1.0.0</version>
   <description> TBD </description>
-  <author email="glpuga@gmail.com">Gerardo Puga</author>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>donatello_description</depend>
-  <depend>donatello_rviz2</depend>
-  <depend>donatello_teleop</depend>
-  <depend>donatello_localization</depend>
-  <depend>donatello_navigation</depend>
-  <depend>donatello_misc</depend>
-  <depend>donatello_rf2o_odom</depend>
-  <depend>donatello_odom_filter</depend>
-
-  <depend>donatello_mapping_utils</depend>
+  <depend>donatello_online_mapping</depend>
+  <depend>donatello_rosbag_utils</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
