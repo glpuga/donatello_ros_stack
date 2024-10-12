@@ -21,6 +21,6 @@ services:
     device_cgroup_rules:
       - 'c 81:* rmw'
       - 'c 189:* rmw'
-    network_mode: bridge
+    network_mode: host
 volumes:
   donatello_persistence:
