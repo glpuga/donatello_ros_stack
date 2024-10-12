@@ -14,7 +14,7 @@ camera/realsense2_camera_driver:
     output: 'screen'
     enable_color: true
     rgb_camera:
-      color_profile: '640x480x6'
+      color_profile: '1280x720x6'
       color_format: 'RGB8'
       enable_auto_exposure: true
     enable_depth: true
@@ -22,9 +22,9 @@ camera/realsense2_camera_driver:
     enable_infra1: false
     enable_infra2: false
     depth_module:
-      depth_profile: '480x270x6'
+      depth_profile: '848x480x6'
       depth_format: 'Z16'
-      infra_profile: '640x480x6'
+      infra_profile: '848x480x6'
       infra_format: 'RGB8'
       infra1_format: 'Y8'
       infra2_format: 'Y8'
