@@ -27,3 +27,7 @@ repositories:
     type: git
     url: https://github.com/glpuga/rf2o_laser_odometry.git
     version: 2d2d7af13f1fae8747e9dfa13fa4438ddda5b4f7
+  cartographer_tools:
+    type: git
+    url: https://github.com/glpuga/cartographer_tools.git
+    version: 3915cfe81fd306f2e932ef157c38debdc2b340e1

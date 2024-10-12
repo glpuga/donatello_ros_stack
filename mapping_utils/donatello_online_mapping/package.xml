@@ -12,6 +12,8 @@
   <depend>slam_toolbox</depend>
   <depend>nav2_map_server</depend>
 
+  <depend>cartographer_tools</depend>
+
   <depend>rosbag2_storage_mcap</depend>
 
   <export>
