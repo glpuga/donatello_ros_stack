@@ -5,7 +5,7 @@ velocity_smoother:
     feedback: "OPEN_LOOP"
     max_velocity: [1.5, 1.5, 1.5]
     min_velocity: [-1.5, -1.5, -1.5]
-    max_accel: [1.0, 1.0, 3.0]
+    max_accel: [2.0, 2.0, 18.0]
     max_decel: [-10.0, -10.0, -18.]
     odom_topic: "odom"
     odom_duration: 0.1
