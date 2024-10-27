@@ -45,6 +45,7 @@ RUN apt update \
     git \
     locate \
     mc \
+    pre-commit \
     psmisc \
     python3-pip \
     screen \
@@ -52,10 +53,8 @@ RUN apt update \
     wget \
  && rm -rf /var/lib/apt/lists/*
 
-RUN pip install pre-commit==2.20.0
-
-RUN addgroup --gid 1000 $GROUP \
- && adduser --uid 1000 --ingroup $GROUP --home /home/$USER --shell /bin/sh --disabled-password --gecos "" $USER \
+RUN addgroup --gid 1001 $GROUP \
+ && adduser --uid 1001 --ingroup $GROUP --home /home/$USER --shell /bin/sh --disabled-password --gecos "" $USER \
  && adduser $USER sudo \
  && adduser $USER dialout \
  && echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/$USER
