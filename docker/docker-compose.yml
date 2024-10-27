@@ -2,7 +2,7 @@ services:
   donatello-dev:
     build:
       context: ..
-      dockerfile: docker/images/${ROSDISTRO:-humble}/Dockerfile
+      dockerfile: docker/images/${ROSDISTRO:-jazzy}/Dockerfile
     container_name: donatello-dev
     environment:
       - DISPLAY

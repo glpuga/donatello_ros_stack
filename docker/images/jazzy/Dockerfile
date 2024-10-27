@@ -1,4 +1,4 @@
-FROM ros:humble-ros-base-jammy AS cacher
+FROM ros:jazzy-ros-base-noble AS cacher
 
 WORKDIR /ws/src
 
@@ -9,7 +9,7 @@ RUN mkdir -p /tmp/ws/src \
  && find ./ -name "COLCON_IGNORE" | xargs cp --parents -t /tmp/ws/src \
  || true
 
-FROM ros:humble-ros-base-jammy AS realsense_cacher
+FROM ros:jazzy-ros-base-noble AS realsense_cacher
 
 WORKDIR /root
 
@@ -28,7 +28,7 @@ RUN /bin/bash -c '\
  && cmake .. -DCMAKE_BUILD_TYPE=release -DFORCE_RSUSB_BACKEND=true -DBUILD_WITH_CUDA=false \
  && make -j1'
 
-FROM ros:humble-ros-base-jammy AS main_development_image
+FROM ros:jazzy-ros-base-noble AS main_development_image
 
 ARG USER=developer
 ARG GROUP=developer
@@ -79,7 +79,7 @@ WORKDIR $USER_WS
 
 RUN sudo apt update \
  && sudo apt install -y --no-install-recommends \
-    ros-humble-cv-bridge \
+    ros-jazzy-cv-bridge \
     libopus-dev \
  && sudo rm -rf /var/lib/apt/lists/*
 RUN python3 -m pip install -U numpy numpy-quaternion PyYaml av
@@ -123,7 +123,7 @@ RUN cd src/ \
 COPY --from=cacher --chown=$USER:$GROUP /tmp/ws/ $USER_WS/
 RUN /bin/bash -c '\
     sudo apt update \
- && . /opt/ros/humble/setup.sh \
+ && . /opt/ros/jazzy/setup.sh \
  && rosdep update \
  && rosdep install -i -y --from-path src \
  && sudo rm -rf /var/lib/apt/lists/*'
