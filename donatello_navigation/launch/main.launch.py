@@ -24,21 +24,28 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # TODO - This should be a parameter
-    controller_type = "mppi"
+    planner_set = "navfn_planner"
 
     this_package_share = get_package_share_directory("donatello_navigation")
 
     parameter_files = [
         "behavior_server_params.yaml",
         "bt_navigator_params.yaml",
-        "controller_params_{}.yaml".format(controller_type),
-        "global_costmap_params.yaml",
-        "local_costmap_params.yaml",
-        "planner_server_params.yaml",
         "smoother_server_params.yaml",
         "velocity_smoother_params.yaml",
         "waypoint_follower_params.yaml",
     ]
+
+    planner_files = [
+        "controller_params.yaml",
+        "global_costmap_params.yaml",
+        "local_costmap_params.yaml",
+        "planner_server_params.yaml",
+    ]
+
+    parameter_files.append(
+        *[os.path.join("planning", planner_set, file) for file in planner_files]
+    )
 
     overall_params = [
         os.path.join(this_package_share, "config", name) for name in parameter_files
@@ -57,7 +64,7 @@ def generate_launch_description():
         executable="controller_server",
         name="controller_server",
         remappings=[
-            ('/cmd_vel', '/cmd_vel_controller'),
+            ("/cmd_vel", "/cmd_vel_controller"),
         ],
         **common_node_arguments,
     )
@@ -81,7 +88,7 @@ def generate_launch_description():
         executable="behavior_server",
         name="behavior_server",
         remappings=[
-            ('/cmd_vel', '/cmd_vel_controller'),
+            ("/cmd_vel", "/cmd_vel_controller"),
         ],
         **common_node_arguments,
     )
@@ -105,8 +112,8 @@ def generate_launch_description():
         executable="velocity_smoother",
         name="velocity_smoother",
         remappings=[
-            ('/cmd_vel', '/cmd_vel_mux'),
-            ('/cmd_vel_smoothed', '/cmd_vel_smoother'),
+            ("/cmd_vel", "/cmd_vel_mux"),
+            ("/cmd_vel_smoothed", "/cmd_vel_smoother"),
         ],
         **common_node_arguments,
     )
@@ -149,8 +156,8 @@ def generate_launch_description():
             {"mode": 0},
         ],
         remappings=[
-            ('/cmd_vel_in', '/cmd_vel_smoother'),
-            ('/cmd_vel_out', '/cmd_vel'),
+            ("/cmd_vel_in", "/cmd_vel_smoother"),
+            ("/cmd_vel_out", "/cmd_vel"),
         ],
     )
 
