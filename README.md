@@ -40,7 +40,7 @@ To build the development container, run the following command:
 To run the software stack in simulation, build the development container and run the following command once inside the terminal:
 
 ```bash
-colcon build --merge-install \
+colcon build --merge-install --symlink-install \
  && source install/setup.bash \
  && ros2 launch donatello_bringup_sim main.launch.py
 ```

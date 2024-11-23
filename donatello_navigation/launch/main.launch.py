@@ -24,7 +24,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # TODO - This should be a parameter
-    planner_set = "navfn_planner"
+    planner_set = "navfn_mppi"
 
     this_package_share = get_package_share_directory("donatello_navigation")
 
@@ -43,9 +43,7 @@ def generate_launch_description():
         "planner_server_params.yaml",
     ]
 
-    parameter_files.append(
-        *[os.path.join("planning", planner_set, file) for file in planner_files]
-    )
+    parameter_files += [os.path.join("planning", planner_set, file) for file in planner_files]
 
     overall_params = [
         os.path.join(this_package_share, "config", name) for name in parameter_files
