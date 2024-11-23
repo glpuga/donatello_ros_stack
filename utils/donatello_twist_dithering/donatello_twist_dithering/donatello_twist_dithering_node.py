@@ -47,6 +47,52 @@ class TwistDitherNode(Node):
 
         self.mode_ = self.get_parameter("mode").get_parameter_value().integer_value
 
+        def round_outwards(value, robot_hysteresis, virtual_hysteresis):
+            module = abs(value)
+            # If the value is greater than the robot hysteresis, do nothing.
+            if module > robot_hysteresis:
+                return value
+            # If the value is smaller than the virtual hysteresis, we will set it to 0.
+            if module < virtual_hysteresis:
+                return 0.0
+            # if it's in the middle ground, round it to the robot hysteresis.
+            sign = 1.0 if value > 0.0 else -1.0
+            return robot_hysteresis * sign
+
+        def force_deadband(value, robot_hysteresis, virtual_hysteresis):
+            module = abs(value)
+            if module > robot_hysteresis:
+                return value
+            return 0.0
+
+        def random_dither(value, robot_hysteresis, virtual_hysteresis):
+            module = abs(value)
+            if module > robot_hysteresis:
+                return value
+            if module < virtual_hysteresis:
+                return 0.0
+            sign = 1.0 if value > 0.0 else -1.0
+            # For anything in the middle, we will dither the value by time averaging.
+            p = module / robot_hysteresis
+            return robot_hysteresis * sign if p > random.random() else 0.0
+
+        # default to doing nothing
+        if self.mode_ == 0:
+            self.dither_value = (
+                lambda value, robot_hysteresis, virtual_hysteresis: value
+            )
+        elif self.mode_ == 1:
+            self.dither_value = round_outwards
+        elif self.mode_ == 2:
+            self.dither_value = force_deadband
+        elif self.mode_ == 3:
+            self.dither_value = random_dither
+        else:
+            self.get_logger().error(
+                "No distortion mode selected. Failing fast not moving the robot"
+            )
+            self.dither_value = lambda value, robot_hysteresis, virtual_hysteresis: 0.0
+
         self.get_logger().info(
             "Robot hysteresis: {}".format(
                 self.get_parameter("timeout").get_parameter_value().double_value
@@ -104,24 +150,6 @@ class TwistDitherNode(Node):
             self.virtual_hysteresis_[2],
         )
         self.goal_publisher_.publish(output_message)
-
-    def dither_value(self, value, robot_hysteresis, virtual_hysteresis):
-        """Dither a value."""
-        if self.mode_ == 0:
-            return value
-        module = abs(value)
-        # If the value is greater than the robot hysteresis, we won't interfere with it.
-        if module > robot_hysteresis:
-            return value
-        # If the value is smaller than the virtual hysteresis, we will set it to 0.
-        if module < virtual_hysteresis:
-            return 0.0
-        sign = 1.0 if value > 0.0 else -1.0
-        if self.mode_ == 1:
-            return robot_hysteresis * sign
-        # For anything in the middle, we will dither the value by time averaging.
-        p = value / robot_hysteresis
-        return robot_hysteresis * sign if p > random.random() else 0.0
 
 
 def main(args=None):

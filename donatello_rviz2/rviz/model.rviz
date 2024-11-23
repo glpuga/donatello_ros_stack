@@ -14,7 +14,7 @@ Panels:
         - /Localization1
         - /Navigation1
       Splitter Ratio: 0.6322314143180847
-    Tree Height: 593
+    Tree Height: 576
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -961,14 +961,56 @@ Visualization Manager:
           Enabled: true
           Name: MPPI debug (needs enabling in config)
           Namespaces:
-            Candidate Trajectories: true
-            Optimal Trajectory: true
+            {}
           Topic:
             Depth: 5
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /trajectories
+          Value: true
+        - Alpha: 1
+          Class: rviz_default_plugins/PointStamped
+          Color: 204; 41; 204
+          Enabled: true
+          History Length: 1
+          Name: PointStamped
+          Radius: 0.20000000298023224
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /lookahead_point
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz_default_plugins/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            Filter size: 10
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /lookahead_collision_arc
           Value: true
       Enabled: true
       Name: Navigation
@@ -1023,7 +1065,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 100.4942398071289
+      Scale: 241.6468505859375
       Target Frame: donatello/base_link
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0
@@ -1055,11 +1097,11 @@ Window Geometry:
   Height: 1016
   Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd0000000100000000000001e6000003a2fc0200000004fb000000100044006900730070006c006100790073010000003b000002e1000000c700fffffffb0000000a005600690065007700730100000322000000bb000000a000fffffffb0000001e005200650061006c00730065006e0073006500200043006f006c006f00720000000336000000a70000002800fffffffb00000018004e0061007600690067006100740069006f006e0020003200000002ba0000012300000000000000000000054e000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000001e600000396fc0200000004fb000000100044006900730070006c0061007900730100000044000002d6000000eb00fffffffb0000000a005600690065007700730100000321000000b9000000b900fffffffb0000001e005200650061006c00730065006e0073006500200043006f006c006f00720000000336000000a70000002c00fffffffb00000018004e0061007600690067006100740069006f006e0020003200000002ba0000012300000000000000000000054d0000039600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Realsense Color:
     collapsed: false
   Views:
     collapsed: false
   Width: 1850
   X: 70
-  Y: 27
+  Y: 40

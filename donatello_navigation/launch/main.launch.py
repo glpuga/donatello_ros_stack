@@ -24,7 +24,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # TODO - This should be a parameter
-    planner_set = "navfn_mppi"
+    planner_set = "navfn_rpp"
 
     this_package_share = get_package_share_directory("donatello_navigation")
 
@@ -43,7 +43,9 @@ def generate_launch_description():
         "planner_server_params.yaml",
     ]
 
-    parameter_files += [os.path.join("planning", planner_set, file) for file in planner_files]
+    parameter_files += [
+        os.path.join("planning", planner_set, file) for file in planner_files
+    ]
 
     overall_params = [
         os.path.join(this_package_share, "config", name) for name in parameter_files
@@ -147,11 +149,11 @@ def generate_launch_description():
         respawn=True,
         arguments=["--ros-args", "--log-level", "info"],
         parameters=[
-            {"robot_hysteresis": [0.1, 0.1, 0.5]},
+            {"robot_hysteresis": [0.11, 0.11, 0.5]},
             {"virtual_hysteresis": [0.01, 0.01, 0.01]},
             {"frequency": 20.0},
             {"timeout": 1.0},
-            {"mode": 0},
+            {"mode": 3},
         ],
         remappings=[
             ("/cmd_vel_in", "/cmd_vel_smoother"),

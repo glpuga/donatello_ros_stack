@@ -23,6 +23,7 @@
   <depend>launch</depend>
   <depend>launch_ros</depend>
 
+  <depend>nav2_regulated_pure_pursuit_controller</depend>
   <depend>nav2_dwb_controller</depend>
   <depend>nav2_mppi_controller</depend>
   <depend>nav2_rotation_shim_controller</depend>

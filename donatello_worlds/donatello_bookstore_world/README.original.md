@@ -30,7 +30,7 @@ gazebo worlds/bookstore.world
 ```bash
 # build for ROS
 rosdep update
-rosdep install --from-paths . --ignore-src -r -y
+rosdep install --from-path . --ignore-src -r -y
 colcon build
 
 # run in ROS
@@ -44,7 +44,7 @@ Include this as a .rosinstall dependency in your SampleApplication simulation wo
 To build it outside an application, note there is no robot workspace. It is a simulation workspace only.
 
 ```bash
-rosdep install --from-paths . --ignore-src -r -y
+rosdep install --from-path . --ignore-src -r -y
 colcon build
 ```
 
