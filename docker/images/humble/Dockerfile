@@ -144,7 +144,7 @@ RUN /bin/bash -c '\
  && sudo rm -rf /var/lib/apt/lists/*'
 
 # Prevent ROS from using the host network for multicast
-ENV ROS_LOCALHOST_ONLY 1
+# ENV ROS_LOCALHOST_ONLY 1
 
 #
 # Final setup of the workspace

@@ -4,7 +4,7 @@
   <name>donatello_description</name>
   <version>0.0.1</version>
   <description>The donatello_description package</description>
-  <author email="glpuga@gmail.com">Gerardo Puga</author>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
@@ -17,6 +17,9 @@
   <exec_depend>robomaster_description</exec_depend>
   <exec_depend>yolo_realsense2_models</exec_depend>
   <exec_depend>yolo_rplidar_models</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -4,7 +4,7 @@
   <name>donatello_bringup_common</name>
   <version>1.0.0</version>
   <description> TBD </description>
-  <author email="glpuga@gmail.com">Gerardo Puga</author>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
@@ -20,6 +20,9 @@
   <depend>donatello_odom_filter</depend>
 
   <depend>donatello_mapping_utils</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

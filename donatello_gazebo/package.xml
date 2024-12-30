@@ -3,7 +3,7 @@
   <name>donatello_gazebo</name>
   <version>0.1.0</version>
   <description>Sample worlds package</description>
-  <author email="glpuga@gmail.com">Gerardo Puga</author>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
@@ -16,6 +16,9 @@
   <depend>donatello_plain_world</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <!-- Required export tag to find models by using <uri>model://model_name</uri> -->
