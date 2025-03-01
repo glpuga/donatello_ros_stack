@@ -93,16 +93,22 @@ COPY --chown=$USER:$GROUP docker/files/colcon_defaults.yaml /home/$USER/.colcon/
 
 #
 # Install gazebo from source, to patch it
+# Only do this in intel, because in ARM we don't use gazebo anyway
 
 COPY docker/files/patched_collection_fortress.yaml /tmp/patched_collection_fortress.yaml
-RUN cd src/ \
- && mkdir -p gazebo \
- && cd gazebo \
- && vcs import < /tmp/patched_collection_fortress.yaml \
- && sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
- && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
- && sudo apt update \
- && sudo apt -y install $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
+RUN /bin/bash -c 'ARCH=`uname -m` && if [ "$ARCH" == "aarch64" ]; then true; else false; fi;' \
+ || \
+ ( \
+    cd src/ \
+    && mkdir -p gazebo \
+    && cd gazebo \
+    && vcs import < /tmp/patched_collection_fortress.yaml \
+    && sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
+    && sudo apt update \
+    && sudo apt -y install $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ') \
+    && sudo rm -rf /var/lib/apt/lists/* \
+ )
 
 #
 # Install base system external dependencies
