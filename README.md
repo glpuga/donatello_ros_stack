@@ -42,7 +42,7 @@ To run the software stack in simulation, build the development container and run
 ```bash
 colcon build --merge-install --symlink-install \
  && source install/setup.bash \
- && ros2 launch donatello_bringup_sim main.launch.py
+ && ros2 launch donatello_bringup_sim main.launch.py rviz:=true gz_gui:=true
 ```
 
 To control the robot you'll need a gamepad. Alternatively, you can use the keyboard to control the robot if you launch the system with the `input_type:=keyboard` argument.

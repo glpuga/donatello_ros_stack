@@ -32,12 +32,12 @@ from launch.substitutions import PythonExpression
 
 def generate_launch_description():
     launch_gazebo_gui_arg = DeclareLaunchArgument(
-        name="launch_gazebo_gui",
+        name="gz_gui",
         description="Set to true to launch the Gazebo GUI",
         choices=["true", "false"],
         default_value="false",
     )
-    launch_gazebo_gui_conf = LaunchConfiguration("launch_gazebo_gui")
+    launch_gazebo_gui_conf = LaunchConfiguration("gz_gui")
 
     gzserver_launch_include = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

@@ -26,10 +26,10 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     rviz_arg = DeclareLaunchArgument(
-        name="use_rviz", default_value="false", description="Launch RViz"
+        name="rviz", default_value="false", description="Launch RViz"
     )
 
-    rviz_conf = LaunchConfiguration("use_rviz")
+    rviz_conf = LaunchConfiguration("rviz")
 
     def build_launch_description_source(pkg):
         return PythonLaunchDescriptionSource(
