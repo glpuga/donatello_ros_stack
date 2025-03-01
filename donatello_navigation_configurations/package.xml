@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>donatello_rosbag_utils</name>
+  <name>donatello_navigation_configurations</name>
   <version>1.0.0</version>
   <description> TBD </description>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
@@ -9,10 +9,12 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>donatello_rviz2</depend>
-  <depend>rosbag2_storage_mcap</depend>
-
-  <depend>xterm</depend>
+  <depend>nav2_dwb_controller</depend>
+  <depend>nav2_mppi_controller</depend>
+  <depend>nav2_navfn_planner</depend>
+  <depend>nav2_regulated_pure_pursuit_controller</depend>
+  <depend>nav2_rotation_shim_controller</depend>
+  <depend>nav2_smac_planner</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -19,16 +19,10 @@
   <depend>nav2_waypoint_follower</depend>
 
   <depend>donatello_twist_dithering</depend>
+  <depend>donatello_navigation_configurations</depend>
 
   <depend>launch</depend>
   <depend>launch_ros</depend>
-
-  <depend>nav2_regulated_pure_pursuit_controller</depend>
-  <depend>nav2_dwb_controller</depend>
-  <depend>nav2_mppi_controller</depend>
-  <depend>nav2_rotation_shim_controller</depend>
-
-  <depend>nav2_navfn_planner</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

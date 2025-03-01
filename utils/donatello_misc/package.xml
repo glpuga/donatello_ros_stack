@@ -4,7 +4,7 @@
   <name>donatello_misc</name>
   <version>1.0.0</version>
   <description> TBD </description>
-  <maintainer email="glpuga@ekumenlabs.com">Gerardo Puga</maintainer>
+  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

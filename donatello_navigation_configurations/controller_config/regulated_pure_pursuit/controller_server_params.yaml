@@ -13,20 +13,21 @@ controller_server:
       movement_time_allowance: 10.0
     goal_checker:
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.35
       yaw_goal_tolerance: 0.25
     FollowPath:
-      plugin: "nav2_rotation_shim_controller::RotationShimController"
-      primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      # shim controller params
-      max_angular_accel: 18.0 # leave the smoother handle this
+      # plugin: "nav2_rotation_shim_controller::RotationShimController"
+      # primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      # # shim controller params
+      # max_angular_accel: 18.0 # leave the smoother handle this
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
       # primary controller params
       desired_linear_vel: 1.0
       use_velocity_scaled_lookahead_dist: true
       lookahead_dist: 0.5
       min_lookahead_dist: 0.5
-      max_lookahead_dist: 1.5
-      lookahead_time: 1.0
+      max_lookahead_dist: 1.0
+      lookahead_time: 1.5
       use_rotate_to_heading: true
       rotate_to_heading_angular_vel: 1.0
       transform_tolerance: 0.1
@@ -37,9 +38,9 @@ controller_server:
       use_regulated_linear_velocity_scaling: true
       use_cost_regulated_linear_velocity_scaling: false
       use_fixed_curvature_lookahead: false
-      curvature_lookahead_dist: 0.25
-      regulated_linear_scaling_min_radius: 1.5
+      curvature_lookahead_dist: 1.5
+      regulated_linear_scaling_min_radius: 0.5
       regulated_linear_scaling_min_speed: 0.25
-      allow_reversing: false
+      allow_reversing: true
       rotate_to_heading_min_angle: 0.8
       # max_robot_pose_search_dist: 10.0  # leave at default

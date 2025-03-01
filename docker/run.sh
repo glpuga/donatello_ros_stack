@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright 2023 Ekumenlabs Inc.
+# Copyright 2023 Ekumen Inc.
 # Copyright 2024 Gerardo Puga
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

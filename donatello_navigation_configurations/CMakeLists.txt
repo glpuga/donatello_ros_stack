@@ -1,4 +1,4 @@
-# Copyright 2024 Gerardo Puga
+# Copyright 2025 Gerardo Puga
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,11 +13,12 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 3.5)
-project(donatello_rosbag_utils)
+project(donatello_navigation_configurations)
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY controller_config DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY planner_config DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
