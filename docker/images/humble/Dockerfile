@@ -149,8 +149,16 @@ RUN /bin/bash -c '\
  && sudo apt install bash-completion \
  && sudo rm -rf /var/lib/apt/lists/*'
 
-# Prevent ROS from using the host network for multicast
-# ENV ROS_LOCALHOST_ONLY 1
+# # Install inorbit from packages
+COPY --chown=root:root docker/files/inorbit_installation_options.dat /tmp/inorbit_installation_options.dat
+RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C45E9A6F71F2903944292BF7650F5571511D225F \
+ && sudo sh -c 'echo "deb https://artifacts.inorbit.ai/debian/ jammy-ros2 main" > /etc/apt/sources.list.d/inorbit-agent.list' \
+ && sudo apt update \
+ && sudo apt install --no-install-recommends -y \
+    apt-transport-https \
+    apt-utils \
+    && sudo bash -c 'DEBCONF_DB_OVERRIDE='File{/tmp/inorbit_installation_options.dat}' apt install --no-install-recommends -y inorbit-agent' \
+    && sudo rm -rf /var/lib/apt/lists/*
 
 #
 # Final setup of the workspace

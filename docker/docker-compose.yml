@@ -18,9 +18,12 @@ services:
       - /dev:/dev
       - ..:/home/developer/ws/src/project
       - donatello_persistence:/home/developer/ws/persistence
+      - donatello_inorbit_local:/root/.inorbit/local/
+      - ../inorbit:/root/.inorbit/local
     device_cgroup_rules:
       - 'c 81:* rmw'
       - 'c 189:* rmw'
     network_mode: host
 volumes:
   donatello_persistence:
+  donatello_inorbit_local:

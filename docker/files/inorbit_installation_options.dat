@@ -1,0 +1,17 @@
+Name: inorbit-agent/allow-non-system-userid
+Template: inorbit-agent/allow-non-system-userid
+Value: true
+Owners: inorbit-agent
+Flags: seen
+
+Name: inorbit-agent/enable-systemd
+Template: inorbit-agent/enable-systemd
+Value: false
+Owners: inorbit-agent
+Flags: seen
+
+Name: inorbit-agent/run-as-userid
+Template: inorbit-agent/run-as-userid
+Value: developer
+Owners: inorbit-agent
+Flags: seen
