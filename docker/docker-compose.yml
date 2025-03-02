@@ -22,5 +22,18 @@ services:
       - 'c 81:* rmw'
       - 'c 189:* rmw'
     network_mode: host
+    depends_on:
+      - donatello-inorbit-agent
+    pid: host
+    ipc: host
+  donatello-inorbit-agent:
+    volumes:
+      - donatello_inorbit_local:/root/.inorbit/local/
+      - ../inorbit:/root/.inorbit/local
+    image: inorbitai/agent:ros-humble-4.22.0
+    network_mode: host
+    pid: host # https://github.com/eProsima/Fast-DDS/issues/2956
+    ipc: host
 volumes:
   donatello_persistence:
+  donatello_inorbit_local:
