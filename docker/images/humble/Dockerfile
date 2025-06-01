@@ -1,4 +1,4 @@
-FROM ros:humble-ros-base-jammy AS cacher
+FROM ubuntu:jammy AS  cacher
 
 WORKDIR /ws/src
 
@@ -9,9 +9,14 @@ RUN mkdir -p /tmp/ws/src \
  && find ./ -name "COLCON_IGNORE" | xargs cp --parents -t /tmp/ws/src \
  || true
 
-FROM ros:humble-ros-base-jammy AS realsense_cacher
+FROM ubuntu:jammy AS realsense_cacher
 
 WORKDIR /root
+
+RUN apt update \
+ && apt install --no-install-recommends -y \
+    sudo \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN sudo apt update \
  && sudo apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
@@ -26,9 +31,9 @@ RUN /bin/bash -c '\
  && mkdir build \
  && cd build \
  && cmake .. -DCMAKE_BUILD_TYPE=release -DFORCE_RSUSB_BACKEND=true -DBUILD_WITH_CUDA=false \
- && make -j1'
+ && make -j4'
 
-FROM ros:humble-ros-base-jammy AS main_development_image
+FROM ubuntu:jammy AS  main_development_image
 
 ARG USER=developer
 ARG GROUP=developer
@@ -48,11 +53,25 @@ RUN apt update \
     psmisc \
     python3-pip \
     screen \
+    sudo \
     tmux \
     wget \
  && rm -rf /var/lib/apt/lists/*
 
 RUN pip install pre-commit==2.20.0
+
+RUN apt update \
+ && apt install -y \
+    tzdata \
+ && ln -fs /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime \
+ && dpkg-reconfigure --frontend noninteractive tzdata \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN apt update && apt install curl -y \
+ && curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg \
+ && bash -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null'  \
+ && rm -rf /var/lib/apt/lists/*
+
 
 RUN addgroup --gid 1000 $GROUP \
  && adduser --uid 1000 --ingroup $GROUP --home /home/$USER --shell /bin/sh --disabled-password --gecos "" $USER \
@@ -70,7 +89,6 @@ COPY --from=realsense_cacher /root/librealsense /root/librealsense
 RUN cd /root/librealsense/build \
  && sudo make install
 
-RUN rm -f /ros_entrypoint.sh
 COPY docker/files/ros_entrypoint.sh /ros_entrypoint.sh
 
 USER $USER:$GROUP

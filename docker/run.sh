@@ -71,6 +71,6 @@ done
 # https://github.com/docker/compose/releases/tag/v2.13.0.
 # We have this for convenience and compatibility with previous versions.
 # Otherwise, we could just forward the script arguments to the run verb.
-[[ "$BUILD" = true ]] && docker compose build donatello-dev
+[[ "$BUILD" = true ]] && docker compose build --no-cache donatello-dev
 
 PRIVILEGED_CONTAINER=$PRIVILEGED_CONTAINER USERID=$(id -u) GROUPID=dialout docker compose run --rm donatello-dev
