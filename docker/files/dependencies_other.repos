@@ -31,3 +31,7 @@ repositories:
     type: git
     url: https://github.com/glpuga/cartographer_tools.git
     version: 3915cfe81fd306f2e932ef157c38debdc2b340e1
+  rqt_nav_view:
+    type: git
+    url: https://github.com/glpuga/rqt_nav_view.git
+    version: 9bfd705

@@ -16,6 +16,7 @@
   <depend>donatello_odom_filter</depend>
   <depend>donatello_rf2o_odom</depend>
   <depend>donatello_rosbridge</depend>
+  <depend>donatello_rqt</depend>
   <depend>donatello_rviz2</depend>
   <depend>donatello_teleop</depend>
 
