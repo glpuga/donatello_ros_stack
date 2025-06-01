@@ -60,7 +60,7 @@ RUN addgroup --gid 1000 $GROUP \
  && adduser $USER dialout \
  && echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/$USER
 
- RUN sudo apt update \
+RUN sudo apt update \
  && sudo apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
  && sudo apt-get install -y git wget cmake build-essential \
  && sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
@@ -69,6 +69,9 @@ RUN addgroup --gid 1000 $GROUP \
 COPY --from=realsense_cacher /root/librealsense /root/librealsense
 RUN cd /root/librealsense/build \
  && sudo make install
+
+RUN rm -f /ros_entrypoint.sh
+COPY docker/files/ros_entrypoint.sh /ros_entrypoint.sh
 
 USER $USER:$GROUP
 
@@ -149,9 +152,6 @@ RUN /bin/bash -c '\
  && sudo apt install bash-completion \
  && sudo rm -rf /var/lib/apt/lists/*'
 
-# Prevent ROS from using the host network for multicast
-# ENV ROS_LOCALHOST_ONLY 1
-
 #
 # Final setup of the workspace
 
@@ -161,5 +161,5 @@ RUN echo "source /home/developer/.developer_rc" >> /home/developer/.bashrc
 
 ENV WITHIN_DEV 1
 
-ENV SHELL /bin/bash
-ENTRYPOINT ["fixuid", "/ros_entrypoint.sh", "/bin/bash"]
+CMD        [ "/bin/bash" ]
+ENTRYPOINT ["fixuid", "/ros_entrypoint.sh"]
