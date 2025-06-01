@@ -33,13 +33,13 @@ def generate_launch_description():
         ),
     )
 
-    launch_realsense_driver = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution(
-                [this_pkg_share, "launch", "driver_realsense.launch.py"]
-            ),
-        ),
-    )
+    # launch_realsense_driver = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         PathJoinSubstitution(
+    #             [this_pkg_share, "launch", "driver_realsense.launch.py"]
+    #         ),
+    #     ),
+    # )
 
     launch_robomaster_driver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -52,7 +52,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             launch_rplidar_driver,
-            launch_realsense_driver,
+            # launch_realsense_driver,
             launch_robomaster_driver,
         ]
     )

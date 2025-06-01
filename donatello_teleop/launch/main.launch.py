@@ -15,61 +15,62 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.conditions import IfCondition
-from launch.substitutions import LaunchConfiguration, PythonExpression
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 
-from launch.substitutions import PathJoinSubstitution
-from launch_ros.substitutions import FindPackageShare
+# from launch.conditions import IfCondition
+# from launch.substitutions import LaunchConfiguration, PythonExpression
+# from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+# from launch.launch_description_sources import PythonLaunchDescriptionSource
+
+# from launch.substitutions import PathJoinSubstitution
+# from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    input_type_conf = LaunchConfiguration("input_type")
+    # input_type_conf = LaunchConfiguration("input_type")
 
-    input_type_arg = DeclareLaunchArgument(
-        name="input_type",
-        default_value="gamepad",
-        description="Operator input method",
-        choices=["keyboard", "gamepad"],
-    )
+    # input_type_arg = DeclareLaunchArgument(
+    #     name="input_type",
+    #     default_value="gamepad",
+    #     description="Operator input method",
+    #     choices=["keyboard", "gamepad"],
+    # )
 
-    this_package_share = FindPackageShare("donatello_teleop")
+    # this_package_share = FindPackageShare("donatello_teleop")
 
-    keyboard_teleop_include = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution(
-                [
-                    this_package_share,
-                    "launch",
-                    "teleop_input_keyboard_launch.py",
-                ]
-            )
-        ),
-        condition=IfCondition(
-            PythonExpression(['"', input_type_conf, '" == "keyboard"']),
-        ),
-    )
+    # keyboard_teleop_include = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         PathJoinSubstitution(
+    #             [
+    #                 this_package_share,
+    #                 "launch",
+    #                 "teleop_input_keyboard_launch.py",
+    #             ]
+    #         )
+    #     ),
+    #     condition=IfCondition(
+    #         PythonExpression(['"', input_type_conf, '" == "keyboard"']),
+    #     ),
+    # )
 
-    gamepad_xbox_include = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            PathJoinSubstitution(
-                [
-                    this_package_share,
-                    "launch",
-                    "teleop_input_gamepad_launch.py",
-                ]
-            )
-        ),
-        condition=IfCondition(
-            PythonExpression(['"', input_type_conf, '" == "gamepad"'])
-        ),
-    )
+    # gamepad_xbox_include = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         PathJoinSubstitution(
+    #             [
+    #                 this_package_share,
+    #                 "launch",
+    #                 "teleop_input_gamepad_launch.py",
+    #             ]
+    #         )
+    #     ),
+    #     condition=IfCondition(
+    #         PythonExpression(['"', input_type_conf, '" == "gamepad"'])
+    #     ),
+    # )
 
     return LaunchDescription(
         [
-            input_type_arg,
-            keyboard_teleop_include,
-            gamepad_xbox_include,
+            # input_type_arg,
+            # keyboard_teleop_include,
+            # gamepad_xbox_include,
         ]
     )
