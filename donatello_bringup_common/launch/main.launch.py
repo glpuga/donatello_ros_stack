@@ -25,11 +25,19 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    rviz_arg = DeclareLaunchArgument(
-        name="rviz", default_value="false", description="Launch RViz"
+    declare_rviz_arg = DeclareLaunchArgument(
+        name="enable_rviz",
+        default_value="false",
+        description="Launch RViz",
     )
+    rviz_conf = LaunchConfiguration("enable_rviz")
 
-    rviz_conf = LaunchConfiguration("rviz")
+    declare_rosbridge_arg = DeclareLaunchArgument(
+        name="enable_rosbridge",
+        default_value="true",
+        description="Enable rosbridge server",
+    )
+    rosbridge_conf = LaunchConfiguration("enable_rosbridge")
 
     def build_launch_description_source(pkg):
         return PythonLaunchDescriptionSource(
@@ -69,16 +77,23 @@ def generate_launch_description():
         build_launch_description_source("donatello_misc")
     )
 
+    launch_rosbridge = IncludeLaunchDescription(
+        build_launch_description_source("donatello_rosbridge"),
+        condition=IfCondition(rosbridge_conf),
+    )
+
     return LaunchDescription(
         [
-            rviz_arg,
+            declare_rosbridge_arg,
+            declare_rviz_arg,
             launch_description,
+            launch_localization,
+            launch_misc,
+            launch_navigation,
+            launch_odom_filter,
+            launch_odom_rf2o,
+            launch_rosbridge,
             launch_rviz,
             launch_teleop,
-            launch_localization,
-            launch_navigation,
-            launch_odom_rf2o,
-            launch_odom_filter,
-            launch_misc,
         ]
     )

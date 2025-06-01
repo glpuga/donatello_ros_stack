@@ -1,0 +1,6 @@
+rosapi_node:
+  ros__parameters:
+    topics_glob: ""
+    services_glob: ""
+    params_glob: ""
+    params_timeout: 5.0

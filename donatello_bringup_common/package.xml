@@ -5,19 +5,19 @@
   <version>1.0.0</version>
   <description> TBD </description>
   <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
-  <maintainer email="glpuga@gmail.com">Gerardo Puga</maintainer>
   <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>donatello_description</depend>
+  <depend>donatello_localization</depend>
+  <depend>donatello_misc</depend>
+  <depend>donatello_navigation</depend>
+  <depend>donatello_odom_filter</depend>
+  <depend>donatello_rf2o_odom</depend>
+  <depend>donatello_rosbridge</depend>
   <depend>donatello_rviz2</depend>
   <depend>donatello_teleop</depend>
-  <depend>donatello_localization</depend>
-  <depend>donatello_navigation</depend>
-  <depend>donatello_misc</depend>
-  <depend>donatello_rf2o_odom</depend>
-  <depend>donatello_odom_filter</depend>
 
   <depend>donatello_mapping_utils</depend>
 
