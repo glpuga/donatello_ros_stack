@@ -14,15 +14,10 @@ FROM ubuntu:jammy AS realsense_cacher
 WORKDIR /root
 
 RUN apt update \
- && apt install --no-install-recommends -y \
-    sudo \
+ && apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+ && apt-get install -y git wget cmake build-essential \
+ && apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
  && rm -rf /var/lib/apt/lists/*
-
-RUN sudo apt update \
- && sudo apt-get install -y libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
- && sudo apt-get install -y git wget cmake build-essential \
- && sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at \
- && sudo rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/IntelRealSense/librealsense.git
 
@@ -72,7 +67,6 @@ RUN apt update && apt install curl -y \
  && bash -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null'  \
  && rm -rf /var/lib/apt/lists/*
 
-
 RUN addgroup --gid 1000 $GROUP \
  && adduser --uid 1000 --ingroup $GROUP --home /home/$USER --shell /bin/sh --disabled-password --gecos "" $USER \
  && adduser $USER sudo \
@@ -88,6 +82,10 @@ RUN sudo apt update \
 COPY --from=realsense_cacher /root/librealsense /root/librealsense
 RUN cd /root/librealsense/build \
  && sudo make install
+
+RUN apt update \
+ && apt install -y ros-humble-ros-base ros-dev-tools \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY docker/files/ros_entrypoint.sh /ros_entrypoint.sh
 
@@ -151,6 +149,7 @@ COPY --from=cacher --chown=$USER:$GROUP /tmp/ws/ $USER_WS/
 RUN /bin/bash -c '\
     sudo apt update \
  && . /opt/ros/humble/setup.sh \
+ && sudo rosdep init \
  && rosdep update \
  && rosdep install -i -y --from-path src \
  && sudo rm -rf /var/lib/apt/lists/*'
