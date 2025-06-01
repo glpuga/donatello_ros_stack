@@ -43,7 +43,7 @@ def generate_launch_description():
     available_planners = os.listdir(planner_configs_install_folder)
     available_controllers = os.listdir(controller_configs_install_folder)
 
-    planner_conf, planner_arg = (
+    planner_conf, argument_declaration_planner = (
         LaunchConfiguration(
             'nav_planner',
         ),
@@ -55,7 +55,7 @@ def generate_launch_description():
         ),
     )
 
-    controller_conf, controller_arg = (
+    controller_conf, argument_declaration_controller = (
         LaunchConfiguration(
             'nav_controller',
         ),
@@ -70,6 +70,7 @@ def generate_launch_description():
     this_package_param_files = [
         'behavior_server_params.yaml',
         'bt_navigator_params.yaml',
+        'hystheresis_control_params.yaml',
         'smoother_server_params.yaml',
         'velocity_smoother_params.yaml',
         'waypoint_follower_params.yaml',
@@ -172,7 +173,18 @@ def generate_launch_description():
         name='velocity_smoother',
         remappings=[
             ('/cmd_vel', '/cmd_vel_mux'),
-            ('/cmd_vel_smoothed', '/cmd_vel'),
+            ('/cmd_vel_smoothed', '/cmd_vel_raw'),
+        ],
+        **common_node_arguments,
+    )
+
+    hystheresis_control_node = Node(
+        package='donatello_twist_dithering',
+        executable='twist_dithering',
+        name='hystheresis_control_node',
+        remappings=[
+            ('/cmd_vel_in', '/cmd_vel_raw'),
+            ('/cmd_vel_out', '/cmd_vel'),
         ],
         **common_node_arguments,
     )
@@ -202,15 +214,16 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            planner_arg,
-            controller_arg,
-            controller_server_node,
-            smoother_server_node,
-            planner_server_node,
+            argument_declaration_controller,
+            argument_declaration_planner,
             behavior_server_node,
             bt_navigator_node,
-            waypoint_follower_node,
-            velocity_smoother_node,
+            controller_server_node,
+            hystheresis_control_node,
             lifecycle_manager_node,
+            planner_server_node,
+            smoother_server_node,
+            velocity_smoother_node,
+            waypoint_follower_node,
         ]
     )

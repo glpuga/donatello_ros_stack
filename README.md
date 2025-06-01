@@ -47,7 +47,10 @@ colcon build --merge-install --symlink-install \
 
 To control the robot you'll need a gamepad. Alternatively, you can use the keyboard to control the robot if you launch the system with the `input_type:=keyboard` argument.
 
+### Running the software stack on the real robot
 
-### Running the software stack on the robot
-
-TBD
+```bash
+colcon build --merge-install --symlink-install \
+ && source install/setup.bash \
+ && ros2 launch donatello_bringup_realbot main.launch.py map_name:=home_berisso
+```

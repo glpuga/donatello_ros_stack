@@ -31,8 +31,9 @@ class TwistDitherNode(Node):
         self.declare_parameter("virtual_hysteresis", [0.01, 0.01, 0.05])
         self.declare_parameter("frequency", 20.0)
         self.declare_parameter("timeout", 1.0)
-        self.declare_parameter("mode", 0)
-
+        self.declare_parameter(
+            "mode", "round_outwards"
+        )  # Options: passthrough, round_outwards, natural_deadband, dither_deadband
         self.robot_hysteresis_ = (
             self.get_parameter("robot_hysteresis")
             .get_parameter_value()
@@ -45,7 +46,7 @@ class TwistDitherNode(Node):
         )
         self.rate_ = self.get_parameter("frequency").get_parameter_value().double_value
 
-        self.mode_ = self.get_parameter("mode").get_parameter_value().integer_value
+        self.mode_ = self.get_parameter("mode").get_parameter_value().string_value
 
         def round_outwards(value, robot_hysteresis, virtual_hysteresis):
             module = abs(value)
@@ -59,13 +60,13 @@ class TwistDitherNode(Node):
             sign = 1.0 if value > 0.0 else -1.0
             return robot_hysteresis * sign
 
-        def force_deadband(value, robot_hysteresis, virtual_hysteresis):
+        def natural_deadband(value, robot_hysteresis, virtual_hysteresis):
             module = abs(value)
             if module > robot_hysteresis:
                 return value
             return 0.0
 
-        def random_dither(value, robot_hysteresis, virtual_hysteresis):
+        def dither_deadband(value, robot_hysteresis, virtual_hysteresis):
             module = abs(value)
             if module > robot_hysteresis:
                 return value
@@ -77,19 +78,19 @@ class TwistDitherNode(Node):
             return robot_hysteresis * sign if p > random.random() else 0.0
 
         # default to doing nothing
-        if self.mode_ == 0:
+        if self.mode_ == "passthrough":
             self.dither_value = (
                 lambda value, robot_hysteresis, virtual_hysteresis: value
             )
-        elif self.mode_ == 1:
+        elif self.mode_ == "round_outwards":
             self.dither_value = round_outwards
-        elif self.mode_ == 2:
-            self.dither_value = force_deadband
-        elif self.mode_ == 3:
-            self.dither_value = random_dither
+        elif self.mode_ == "natural_deadband":
+            self.dither_value = natural_deadband
+        elif self.mode_ == "dither_deadband":
+            self.dither_value = dither_deadband
         else:
             self.get_logger().error(
-                "No distortion mode selected. Failing fast not moving the robot"
+                "No distortion mode selected. Failing fast by refusing to move the robot"
             )
             self.dither_value = lambda value, robot_hysteresis, virtual_hysteresis: 0.0
 
