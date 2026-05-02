@@ -2,9 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="donatello">
 
   <xacro:arg name="camera_yaw" default="0.0" />
-  <xacro:arg name="dummy_arm" default="true" />
 
-  <xacro:property name="dummy_arm_param" value="$(arg dummy_arm)" />
   <xacro:property name="package_name" value="donatello_description" />
   <xacro:property name="robot_name" value="donatello" />
 
@@ -20,35 +18,17 @@
   <xacro:include filename="$(find robomaster_description)/urdf/extension.urdf.xacro" />
   <xacro:include filename="$(find robomaster_description)/urdf/tof.urdf.xacro" />
 
-  <!-- use the alternate dummy arm with static articulations -->
-  <xacro:if value="${dummy_arm_param == True}">
-    <xacro:include
-      filename="$(find robomaster_description)/urdf/alternate/arm.urdf.xacro" />
-    <xacro:include
-      filename="$(find robomaster_description)/urdf/alternate/gripper.urdf.xacro" />
-  </xacro:if>
-
-  <!-- use the original articulated arm -->
-  <xacro:unless value="${dummy_arm_param == True}">
-    <xacro:include
-      filename="$(find robomaster_description)/urdf/arm.urdf.xacro" />
-    <xacro:include
-      filename="$(find robomaster_description)/urdf/gripper.urdf.xacro" />
-  </xacro:unless>
-
   <xacro:include filename="extensions.urdf.xacro" />
   <xacro:include filename="sensors.urdf.xacro" />
 
-  <xacro:include filename="$(find yolo_realsense2_models)/urdf/sensor_d435i.urdf.xacro" />
-  <xacro:include filename="$(find yolo_realsense2_models)/urdf/sensor_d435i_gazebo_sim.urdf.xacro" />
+  <xacro:include filename="$(find yolo_realsense2_models)/urdf/sensor_d455.urdf.xacro" />
+  <xacro:include filename="$(find yolo_realsense2_models)/urdf/sensor_d455_gazebo_sim.urdf.xacro" />
   <xacro:include filename="$(find yolo_rplidar_models)/urdf/sensor_rplidar_a2_m12.urdf.xacro" />
   <xacro:include
     filename="$(find yolo_rplidar_models)/urdf/sensor_rplidar_a2_m12_gazebo_sim.urdf.xacro" />
 
   <xacro:base tf_prefix="${tf_prefix}" />
-  <xacro:arm tf_prefix="${tf_prefix}" />
-  <xacro:camera tf_prefix="${tf_prefix}" mount="arm" camera_yaw="$(arg camera_yaw)" />
-  <xacro:gripper tf_prefix="${tf_prefix}" />
+  <!-- <xacro:camera tf_prefix="${tf_prefix}" mount="arm" camera_yaw="$(arg camera_yaw)" /> -->
 
   <xacro:extension tf_prefix="${tf_prefix}" use_rear_extension="false" />
 
@@ -60,7 +40,7 @@
   <xacro:lidar tf_prefix="${tf_prefix}" />
   <xacro:depth_camera tf_prefix="${tf_prefix}" />
 
-  <xacro:controller tf_prefix="${tf_prefix}" />
+  <!-- <xacro:controller tf_prefix="${tf_prefix}" /> -->
 
   <xacro:add_gazebo_sensors tf_prefix="${tf_prefix}" />
 

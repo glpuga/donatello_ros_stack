@@ -102,8 +102,8 @@ RUN sudo apt update \
     libopus-dev \
  && sudo rm -rf /var/lib/apt/lists/*
 RUN python3 -m pip install -U numpy numpy-quaternion PyYaml av
-RUN python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git
-RUN python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git#"egg=libmedia_codec&subdirectory=lib/libmedia_codec"
+RUN python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git@2f3bb63e8d7002520a4c23f4de4bfb918081ced0
+RUN python3 -m pip install git+https://github.com/jeguzzi/RoboMaster-SDK.git@2f3bb63e8d7002520a4c23f4de4bfb918081ced0#"egg=libmedia_codec&subdirectory=lib/libmedia_codec"
 
 RUN colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml \
  && colcon mixin update default

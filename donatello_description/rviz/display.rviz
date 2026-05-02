@@ -7,7 +7,7 @@ Panels:
         - /Global Options1
         - /TF1
       Splitter Ratio: 0.5
-    Tree Height: 875
+    Tree Height: 626
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -52,10 +52,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        donatello/base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         camera_accel_frame:
           Alpha: 1
           Show Axes: false
@@ -113,50 +109,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        donatello/arm_1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/arm_2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/arm_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         donatello/base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        donatello/camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/camera_optical_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        donatello/camera_support_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         donatello/chassis_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/controller_support_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/cpu_lidar_shelves:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -165,15 +122,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        donatello/end_point_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        donatello/endpoint_bracket_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         donatello/extension_base_link:
           Alpha: 1
           Show Axes: false
@@ -195,49 +143,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         donatello/front_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/gripper_link_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/gripper_m_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        donatello/gripper_t_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        donatello/left_gripper_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/left_gripper_link_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/left_gripper_link_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/left_gripper_link_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/left_gripper_link_6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/left_gripper_link_7:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -276,36 +181,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        donatello/right_gripper_link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/right_gripper_link_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/right_gripper_link_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/right_gripper_link_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/right_gripper_link_6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/right_gripper_link_7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         donatello/right_hit_sensor_link:
           Alpha: 1
           Show Axes: false
@@ -316,27 +191,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        donatello/rod_1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/rod_2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/rod_3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/rod_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        donatello/triangle_link:
+        donatello/upper_deck_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -363,8 +218,6 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        donatello/base_link:
-          Value: true
         camera_accel_frame:
           Value: true
         camera_accel_optical_frame:
@@ -393,31 +246,11 @@ Visualization Manager:
           Value: true
         camera_link:
           Value: true
-        donatello/arm_1_link:
-          Value: true
-        donatello/arm_2_link:
-          Value: true
-        donatello/arm_base_link:
-          Value: true
         donatello/base_link:
-          Value: true
-        donatello/camera_link:
-          Value: true
-        donatello/camera_optical_link:
-          Value: true
-        donatello/camera_support_link:
           Value: true
         donatello/chassis_base_link:
           Value: true
-        donatello/controller_support_link:
-          Value: true
-        donatello/cpu_lidar_shelves:
-          Value: true
         donatello/depth_camera_mount_link:
-          Value: true
-        donatello/end_point_link:
-          Value: true
-        donatello/endpoint_bracket_link:
           Value: true
         donatello/extension_base_link:
           Value: true
@@ -428,24 +261,6 @@ Visualization Manager:
         donatello/front_left_wheel_link:
           Value: true
         donatello/front_right_wheel_link:
-          Value: true
-        donatello/gripper_link_link:
-          Value: true
-        donatello/gripper_m_link:
-          Value: true
-        donatello/gripper_t_link:
-          Value: true
-        donatello/left_gripper_link_1:
-          Value: true
-        donatello/left_gripper_link_2:
-          Value: true
-        donatello/left_gripper_link_4:
-          Value: true
-        donatello/left_gripper_link_5:
-          Value: true
-        donatello/left_gripper_link_6:
-          Value: true
-        donatello/left_gripper_link_7:
           Value: true
         donatello/left_hit_sensor_link:
           Value: true
@@ -461,31 +276,11 @@ Visualization Manager:
           Value: true
         donatello/rear_right_wheel_link:
           Value: true
-        donatello/right_gripper_link_1:
-          Value: true
-        donatello/right_gripper_link_2:
-          Value: true
-        donatello/right_gripper_link_4:
-          Value: true
-        donatello/right_gripper_link_5:
-          Value: true
-        donatello/right_gripper_link_6:
-          Value: true
-        donatello/right_gripper_link_7:
-          Value: true
         donatello/right_hit_sensor_link:
           Value: true
         donatello/right_led_link:
           Value: true
-        donatello/rod_1_link:
-          Value: true
-        donatello/rod_2_link:
-          Value: true
-        donatello/rod_3_link:
-          Value: true
-        donatello/rod_link:
-          Value: true
-        donatello/triangle_link:
+        donatello/upper_deck_link:
           Value: true
         rear_mesh_link:
           Value: true
@@ -498,96 +293,55 @@ Visualization Manager:
       Show Names: false
       Tree:
         donatello/base_link:
-          donatello/base_link:
-            donatello/chassis_base_link:
-              donatello/arm_base_link:
-                donatello/arm_1_link:
-                  donatello/arm_2_link:
-                    donatello/camera_link:
-                      donatello/camera_optical_link:
-                        {}
-                    donatello/endpoint_bracket_link:
-                      donatello/end_point_link:
-                        {}
-                      donatello/gripper_link_link:
-                        donatello/camera_support_link:
-                          donatello/depth_camera_mount_link:
-                            camera_bottom_screw_frame:
-                              camera_link:
-                                camera_accel_frame:
-                                  camera_accel_optical_frame:
-                                    {}
-                                camera_color_frame:
-                                  camera_color_optical_frame:
-                                    {}
-                                camera_depth_frame:
-                                  camera_depth_optical_frame:
-                                    {}
-                                camera_gyro_frame:
-                                  camera_gyro_optical_frame:
-                                    {}
-                                camera_infra1_frame:
-                                  camera_infra1_optical_frame:
-                                    {}
-                                camera_infra2_frame:
-                                  camera_infra2_optical_frame:
-                                    {}
-                        donatello/gripper_m_link:
-                          donatello/left_gripper_link_1:
-                            donatello/left_gripper_link_2:
-                              donatello/left_gripper_link_4:
-                                donatello/left_gripper_link_5:
-                                  donatello/left_gripper_link_6:
-                                    donatello/left_gripper_link_7:
-                                      {}
-                          donatello/right_gripper_link_1:
-                            donatello/right_gripper_link_2:
-                              donatello/right_gripper_link_4:
-                                donatello/right_gripper_link_5:
-                                  donatello/right_gripper_link_6:
-                                    donatello/right_gripper_link_7:
-                                      {}
-                        donatello/gripper_t_link:
+          donatello/chassis_base_link:
+            donatello/extension_base_link:
+              donatello/lidar_base_link:
+                rear_mesh_link:
+                  {}
+                rear_rplidar_optical_link:
+                  {}
+              donatello/upper_deck_link:
+                donatello/depth_camera_mount_link:
+                  camera_bottom_screw_frame:
+                    camera_link:
+                      camera_accel_frame:
+                        camera_accel_optical_frame:
                           {}
-                      donatello/rod_1_link:
-                        {}
-                  donatello/triangle_link:
-                    {}
-                donatello/controller_support_link:
-                  {}
-                donatello/cpu_lidar_shelves:
-                  donatello/lidar_base_link:
-                    rear_mesh_link:
-                      {}
-                    rear_rplidar_optical_link:
-                      {}
-                donatello/rod_2_link:
-                  {}
-                donatello/rod_link:
-                  donatello/rod_3_link:
-                    {}
-              donatello/extension_base_link:
+                      camera_color_frame:
+                        camera_color_optical_frame:
+                          {}
+                      camera_depth_frame:
+                        camera_depth_optical_frame:
+                          {}
+                      camera_gyro_frame:
+                        camera_gyro_optical_frame:
+                          {}
+                      camera_infra1_frame:
+                        camera_infra1_optical_frame:
+                          {}
+                      camera_infra2_frame:
+                        camera_infra2_optical_frame:
+                          {}
+            donatello/front_hit_sensor_link:
+              donatello/front_led_link:
                 {}
-              donatello/front_hit_sensor_link:
-                donatello/front_led_link:
-                  {}
-              donatello/front_left_wheel_link:
+            donatello/front_left_wheel_link:
+              {}
+            donatello/front_right_wheel_link:
+              {}
+            donatello/left_hit_sensor_link:
+              donatello/left_led_link:
                 {}
-              donatello/front_right_wheel_link:
+            donatello/rear_hit_sensor_link:
+              donatello/rear_led_link:
                 {}
-              donatello/left_hit_sensor_link:
-                donatello/left_led_link:
-                  {}
-              donatello/rear_hit_sensor_link:
-                donatello/rear_led_link:
-                  {}
-              donatello/rear_left_wheel_link:
+            donatello/rear_left_wheel_link:
+              {}
+            donatello/rear_right_wheel_link:
+              {}
+            donatello/right_hit_sensor_link:
+              donatello/right_led_link:
                 {}
-              donatello/rear_right_wheel_link:
-                {}
-              donatello/right_hit_sensor_link:
-                donatello/right_led_link:
-                  {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -605,35 +359,35 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.553801417350769
+      Distance: 0.2663118243217468
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0911332219839096
-        Y: -0.022594859823584557
-        Z: 0.15257664024829865
+        X: -0.041333239525556564
+        Y: 0.12443450838327408
+        Z: 0.2671084702014923
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.38979730010032654
+      Pitch: 0.3197970986366272
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz)
-      Yaw: 5.254964351654053
+      Value: Orbit (rviz_default_plugins)
+      Yaw: 4.562382221221924
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1123
+  Height: 1131
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000015a00000401fc0200000002fb000000100044006900730070006c006100790073010000004400000401000000eb00fffffffb0000000a0056006900650077007300000002730000016a000000b900ffffff000005dd0000040100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000015a00000415fc0200000002fb000000100044006900730070006c006100790073010000003b00000302000000c700fffffffb0000000a0056006900650077007301000003430000010d000000a000ffffff000005de0000041500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1854
   X: 66
-  Y: 40
+  Y: 32

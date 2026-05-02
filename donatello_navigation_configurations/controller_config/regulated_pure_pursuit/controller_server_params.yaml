@@ -24,10 +24,10 @@ controller_server:
       # primary controller params
       desired_linear_vel: 1.0
       use_velocity_scaled_lookahead_dist: true
-      lookahead_dist: 0.5
-      min_lookahead_dist: 0.5
-      max_lookahead_dist: 1.0
-      lookahead_time: 1.5
+      lookahead_dist: 0.4
+      min_lookahead_dist: 0.4
+      max_lookahead_dist: 0.7
+      lookahead_time: 0.5
       use_rotate_to_heading: true
       rotate_to_heading_angular_vel: 1.0
       transform_tolerance: 0.1

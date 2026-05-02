@@ -4,7 +4,7 @@ robomaster_ep/robomaster_driver:
     model: 'ep'
     tf_prefix: 'donatello'
     serial_number: ''
-    conn_type: 'sta'
+    conn_type: 'rndis'
     lib_log_level: 'ERROR'
     mode: 2
     arm:

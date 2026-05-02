@@ -14,7 +14,7 @@ repositories:
   yolo_device_models:
     type: git
     url: https://github.com/glpuga/yolo_device_models.git
-    version: f5a6694ebf5b83921a5a3d1e949664c2251fdee9
+    version: 6cae69e2b30f67c8c087f223889fb7eb27a585bd
   random_walker:
     type: git
     url: https://github.com/glpuga/reusable_random_walker.git
