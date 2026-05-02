@@ -10,7 +10,7 @@ As of now, this still an ongoing project, and both the hardware and software are
 
 ### Hardware
 
-The mobile platform of the robot is a [DJI Robomaster EP Core](https://www.dji.com/global/robomaster-ep-core), a mecanum wheeled robot with a 2-DOF robotic arm. On top of this platform, perception is provided by a [Intel RealSense D435i](https://www.intelrealsense.com/depth-camera-d435i/) depth camera, and a [RPLidar A2](https://www.slamtec.com/en/Lidar/A2) 2D lidar. The brain of the robot is a Raspberry Pi 5 with a 250GB NVMe storage for high speed on-board data storage.
+The mobile platform of the robot is a [DJI Robomaster EP Core](https://www.dji.com/global/robomaster-ep-core), a mecanum wheeled robot with a 2-DOF robotic arm. On top of this platform, perception is provided by a [Intel RealSense D435i](https://www.intelrealsense.com/depth-camera-d455/) depth camera, and a [RPLidar A2](https://www.slamtec.com/en/Lidar/A2) 2D lidar. The brain of the robot is a Raspberry Pi 5 with a 250GB NVMe storage for high speed on-board data storage.
 
 ### Software
 

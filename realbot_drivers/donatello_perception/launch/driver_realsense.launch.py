@@ -27,7 +27,7 @@ def generate_launch_description():
     this_package_share = get_package_share_directory("donatello_perception")
 
     params_file_path = os.path.join(
-        this_package_share, "config", "realsense_d435i_config.yaml"
+        this_package_share, "config", "realsense_d455_config.yaml"
     )
 
     realsense_driver_node = Node(

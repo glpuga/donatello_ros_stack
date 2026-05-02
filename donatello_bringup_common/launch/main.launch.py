@@ -26,11 +26,11 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     declare_rviz_arg = DeclareLaunchArgument(
-        name="enable_rviz",
+        name="rviz",
         default_value="false",
         description="Launch RViz",
     )
-    rviz_conf = LaunchConfiguration("enable_rviz")
+    rviz_conf = LaunchConfiguration("rviz")
 
     declare_rosbridge_arg = DeclareLaunchArgument(
         name="enable_rosbridge",

@@ -3,7 +3,7 @@
 
   <xacro:macro name="add_gazebo_sensors" params="tf_prefix=''">
 
-    <xacro:sensor_d435i_gazebo_sim light_mode="true" />
+    <xacro:sensor_d455_gazebo_sim light_mode="true" />
 
     <xacro:sensor_rplidar_a2_m12_gazebo_sim prefix="rear" range_min="0.25" />
 

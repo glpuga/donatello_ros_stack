@@ -3,27 +3,9 @@
 
   <xacro:macro name="lidar" params="tf_prefix=''">
 
-    <joint name="${tf_prefix}arm_base_to_deck_joint" type="fixed">
-      <origin xyz="-0.115 0.00 0.0070" rpy="0 0 -${pi/2}" />
-      <parent link="${tf_prefix}arm_base_link" />
-      <child link="${tf_prefix}cpu_lidar_shelves" />
-    </joint>
-
-    <link name="${tf_prefix}cpu_lidar_shelves">
-      <inertial>
-        <mass value="0.01" />
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
-      <visual>
-        <geometry>
-          <mesh filename="file:$(find donatello_description)/meshes/lidar_cpu_shelves.dae" />
-        </geometry>
-      </visual>
-    </link>
-
     <joint name="${tf_prefix}lidar_base_link_joint" type="fixed">
-      <origin xyz="0 0 0.003" rpy="0 0 0" />
-      <parent link="${tf_prefix}cpu_lidar_shelves" />
+      <origin xyz="0.005 0 0.0" rpy="0 0 0" />
+      <parent link="${tf_prefix}extension_base_link" />
       <child link="${tf_prefix}lidar_base_link" />
     </joint>
 
@@ -37,32 +19,33 @@
   <xacro:macro name="depth_camera" params="tf_prefix=''">
 
     <joint name="${tf_prefix}camera_support_joint" type="fixed">
-      <origin xyz="0.018 0.0 -0.01" rpy="0 0 0" />
-      <parent link="${tf_prefix}gripper_link_link" />
-      <child link="${tf_prefix}camera_support_link" />
+      <origin xyz="0.005 0.0 0.047" rpy="0 0 0" />
+      <parent link="${tf_prefix}extension_base_link" />
+      <child link="${tf_prefix}upper_deck_link" />
     </joint>
 
-    <link name="${tf_prefix}camera_support_link">
+    <link name="${tf_prefix}upper_deck_link">
       <inertial>
         <mass value="0.01" />
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      <visual>
+      <!-- <visual>
         <geometry>
-          <mesh filename="file:$(find donatello_description)/meshes/depth_camera_support.dae" />
+          <mesh filename="file:$(find donatello_description)/meshes/donatello_upper_deck.dae" />
         </geometry>
-      </visual>
+        <origin xyz="0.0 0.0 0.0" rpy="3.14159265359 0 0" />
+      </visual> -->
     </link>
 
     <joint name="${tf_prefix}camera_mount_joint" type="fixed">
-      <origin xyz="0.0372 0 0.001" rpy="0 0 0" />
-      <parent link="${tf_prefix}camera_support_link" />
+      <origin xyz="-0.073 0 0.184" rpy="0 0 0" />
+      <parent link="${tf_prefix}upper_deck_link" />
       <child link="${tf_prefix}depth_camera_mount_link" />
     </joint>
 
     <link name="${tf_prefix}depth_camera_mount_link" />
 
-    <xacro:sensor_d435i parent="${tf_prefix}depth_camera_mount_link" use_nominal_extrinsics="true" />
+    <xacro:sensor_d455 parent="${tf_prefix}depth_camera_mount_link" use_nominal_extrinsics="true" />
 
   </xacro:macro>
 

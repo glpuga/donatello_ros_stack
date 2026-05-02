@@ -82,9 +82,9 @@ amcl:
     # Set this to true when you want to load only the first published map from map_server and ignore subsequent ones.
     first_map_only: false
     # Initial pose x coordinate.
-    initial_pose.x: 0.0
+    initial_pose.x: 3.5
     # Initial pose y coordinate.
-    initial_pose.y: 0.0
+    initial_pose.y: 9.2
     # Initial pose yaw coordinate.
     initial_pose.yaw: 0.7
     # Initial pose xx covariance.
