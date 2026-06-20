@@ -25,8 +25,15 @@ RUN /bin/bash -c '\
     cd librealsense \
  && mkdir build \
  && cd build \
- && cmake .. -DCMAKE_BUILD_TYPE=release -DFORCE_RSUSB_BACKEND=true -DBUILD_WITH_CUDA=false \
- && make -j4'
+ && cmake .. \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DFORCE_RSUSB_BACKEND=true \
+    -DBUILD_WITH_CUDA=false \
+    -DBUILD_EXAMPLES=false \
+    -DBUILD_GRAPHICAL_EXAMPLES=false \
+    -DBUILD_UNIT_TESTS=false \
+    -DCHECK_FOR_UPDATES=false \
+ && make -j$(nproc)'
 
 FROM ubuntu:jammy AS  main_development_image
 
